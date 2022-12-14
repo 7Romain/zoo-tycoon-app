@@ -28,4 +28,14 @@ export class DetailAnimalComponent implements OnInit {
   goToanimalList() {
     this.router.navigate(["/animaux"]);
   }
+
+  rentrerAnimal(id: string, obs: string) {
+    this.animalService.rentrerAnimal(id, obs);
+    // this.router.navigate(["/animaux", id]);
+    // location.reload();
+  }
+  sortirAnimal(id: string, obs: string) {
+    this.animalService.sortirAnimal(id, obs);
+    // location.reload();
+  }
 }

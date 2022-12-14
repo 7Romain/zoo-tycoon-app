@@ -50,6 +50,8 @@
                 <div class="card-action center">
 
                     <a (click)="goToanimalList()">Retour</a>
+                    <a *ngIf="animal.localisation=='dehors'" (click)="rentrerAnimal(animal.id, 'Ras')">Rentrer</a>
+                    <a *ngIf="animal.localisation=='dedans'" (click)="sortirAnimal(animal.id, 'Ras')">Sortir</a>
                     <!--  <a (click)="goToEditanimal(animal)">Editer</a>
                     <a (click)="deleteanimal(animal)">Supprimer</a> -->
 

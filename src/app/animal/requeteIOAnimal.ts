@@ -1,4 +1,4 @@
-export class requeteIoAnimal {
+export class RequeteIoAnimal {
   idAnimal: string;
   iDPersonnel: number;
   observations: string;
