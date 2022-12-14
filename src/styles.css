@@ -1,1 +1,74 @@
-/* You can add global styles to this file, and also import other style files */
+.borderimg {
+    border: 2px inset teal;
+
+}
+
+.taille-moyen {
+    width: 200px;
+    margin-left: calc(50vw - 100px);
+
+}
+
+.taille-grand {
+    width: 250px;
+    margin-left: calc(50vw - 100px);
+
+}
+
+.inlinedisplay {
+    display: inline-block;
+}
+
+
+.input-icons i {
+    position: absolute;
+}
+
+.input-icons {
+    width: 250px;
+    margin-bottom: 10px;
+}
+
+.icon {
+    padding: 10px;
+    color: green;
+    min-width: 50px;
+    text-align: center;
+}
+
+.input-field {
+    width: 200px;
+    padding: 10px;
+    text-align: center;
+}
+
+.relief {
+    font-weight: bold;
+
+}
+
+.space {
+    height: 7px;
+}
+
+.space2 {
+    height: 15px;
+}
+
+.imageLogo {
+    height: 150px;
+    width: auto;
+}
+
+.nav-wrapper-taille {
+    height: 150px;
+}
+
+
+.ml {
+    margin-left: 15px;
+}
+
+.maj::first-letter {
+    text-transform: uppercase;
+}

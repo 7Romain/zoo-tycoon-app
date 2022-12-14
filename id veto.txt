@@ -1,0 +1,5 @@
+veto/admin : master / pass123
+
+responsable : resp / pass123
+
+soigneur :  soigneur / pass123

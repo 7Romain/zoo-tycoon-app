@@ -1,0 +1,65 @@
+<div *ngIf="animal" class="row">
+    <div class="col s12 m8 offset-m2">
+        <h2 class="header center">{{ animal.nom }}</h2>
+        <div class="card horizontal hoverable teal lighten-5">
+            <div class="card-image center valign-wrapper center-align">
+                <img class="borderimg ml" src="\assets\image\{{animal.id}}.webp" alt="image de l'individu">
+            </div>
+            <div class="card-stacked">
+                <div class="card-content">
+                    <table class="bordered striped">
+                        <tbody>
+                            <tr>
+                                <td>Nom</td>
+                                <td><strong>{{ animal.nom }}</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Espèce</td>
+                                <td class="maj"><strong>{{ animal.espece }}</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Sexe</td>
+                                <td *ngIf="animal.sexe=='M'"><strong>Mâle</strong></td>
+                                <td *ngIf="animal.sexe=='F'"><strong>Femelle</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Loacalisation</td>
+                                <td *ngIf="animal.localisation=='dedans'">
+                                    Est à l'intérieur</td>
+
+
+                                <td *ngIf="animal.localisation=='dehors'">
+                                    Est à l'extérieur
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Date de naissance</td>
+                                <td><em>{{ animal.naissance | date:"dd/MM/yyyy" }}</em></td>
+                            </tr>
+                            <tr *ngIf="animal.observations">
+                                <td>
+                                    Observations
+                                </td>
+                                <td>
+                                    {{animal.observations}}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-action center">
+
+                    <a (click)="goToanimalList()">Retour</a>
+                    <!--  <a (click)="goToEditanimal(animal)">Editer</a>
+                    <a (click)="deleteanimal(animal)">Supprimer</a> -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<h4 *ngIf='!animal' class="center">
+    <!-- <app-loader></app-loader> -->
+    Aucun animal à afficher.
+
+</h4>
