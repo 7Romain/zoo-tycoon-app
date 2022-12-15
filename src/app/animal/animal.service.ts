@@ -3,12 +3,13 @@ import { Injectable } from "@angular/core";
 import { catchError, Observable, of, tap } from "rxjs";
 import { Animal } from "./animal";
 import { RequeteIoAnimal } from "./RequeteIOAnimal";
+import { Router } from "@angular/router";
 
 @Injectable({
   providedIn: "root",
 })
 export class AnimalService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   requete: RequeteIoAnimal;
 
@@ -31,56 +32,21 @@ export class AnimalService {
     return of(errorValue);
   }
 
-  rentrerAnimal(animalId: string, observations: string): any {
+  rentrerAnimal(animalId: string, observations: string): Observable<any> {
     this.requete = new RequeteIoAnimal(animalId, observations);
-    console.log(this.requete);
-
-    this.http
-      .post(
-        "http://localhost:9003/api/animaux/entrer",
-        this.requete
-
-        // ,{withCredentials: true,}
-      )
-      .subscribe((result: any) => {
-        console.log(result);
-        location.reload();
-      });
-
-    // return new Observable(() => {
-    //   console.log(animalId + observations);
-    //   this.http
-    //     .post(
-    //       "http://localhost:9003/api/animaux/entrer",
-    //       this.requete
-
-    //       // ,{withCredentials: true,}
-    //     )
-    //     .subscribe((result: any) => {
-    //       console.log(result);
-    //     });
-    // });
-    // console.log(animalId + observations);
+    return this.http.post(
+      "http://localhost:9003/api/animaux/entrer",
+      this.requete,
+      { withCredentials: true }
+    );
   }
 
-  sortirAnimal(animalId: string, observations: string): any {
+  sortirAnimal(animalId: string, observations: string): Observable<any> {
     this.requete = new RequeteIoAnimal(animalId, observations);
-    console.log(this.requete);
-
-    this.http
-      .post(
-        "http://localhost:9003/api/animaux/sortir",
-        this.requete
-
-        // ,{withCredentials: true,}
-      )
-      .subscribe((result: any) => {
-        console.log(result);
-        location.reload();
-      });
-
-    // test(animalId: string, observations: string) {
-    //   console.log("animal rentré" + animalId + " et " + observations);
-    // }
+    return this.http.post(
+      "http://localhost:9003/api/animaux/sortir",
+      this.requete,
+      { withCredentials: true }
+    );
   }
 }

@@ -1,23 +1,13 @@
 <nav class=" nav-wrapper-taille teal">
     <div class="nav-wrapper teal">
-        <a href="#" class="brand-logo center">
+        <a class="deco" (click)="logout()" *ngIf="auth.isLoggedIn">Déconnexion</a>
+        <a class="brand-logo center">
             <img class="imageLogo" src="\assets\image\Logo.png" alt="Z00">
         </a>
+
+
     </div>
 
 </nav>
 
 <router-outlet></router-outlet>
-
-<!-- <div class="taille-grand center input-icons ">
-    <i class="material-icons icon">search</i>
-    <input placeholder="Rechercher un individu " class="center input-field taille-moyen" title="rechercher nom"
-        [maxLength]="26" #inputvar type="text" (keyup.enter)="selectAnimal(inputvar.value)" />
-</div>
-<p *ngIf="animalSelected">{{animalSelected.nom}} est un {{animalSelected.espece}}</p>
-<p *ngIf="!animalSelected">Aucun animal portant ce nom n'a été trouvé.</p> -->
-
-
-
-<!-- <a class="btn-floating btn-large waves-effect waves-light blue z-depth-3"
-    style="position: fixed; bottom:25 px; right: 25px;" routerLink="/pokemon/add">➕</a> -->

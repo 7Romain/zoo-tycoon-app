@@ -1,3 +1,7 @@
+caption {
+    display: none;
+}
+
 .borderimg {
     border: 2px inset teal;
 
@@ -7,6 +11,11 @@
     width: 200px;
     margin-left: calc(50vw - 100px);
 
+}
+
+.formu {
+    margin: 25px;
+    padding: 5px;
 }
 
 .taille-grand {
@@ -71,4 +80,10 @@
 
 .maj::first-letter {
     text-transform: uppercase;
+}
+
+.deco {
+    position: absolute;
+    top: 5px;
+    right: 15px;
 }

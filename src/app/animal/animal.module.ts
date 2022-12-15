@@ -5,10 +5,19 @@ import { BorderCardDirective } from "./border-card.directive";
 import { DetailAnimalComponent } from "./detail-animal/detail-animal.component";
 import { ListAnimauxComponent } from "./list-animaux/list-animaux.component";
 import { Routes, RouterModule } from "@angular/router";
+import { AuthGuard } from "../auth.guard";
 
 const animauxRoutes: Routes = [
-  { path: "animaux", component: ListAnimauxComponent },
-  { path: "animaux/:id", component: DetailAnimalComponent },
+  {
+    path: "animaux",
+    component: ListAnimauxComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: "animaux/:id",
+    component: DetailAnimalComponent,
+    canActivate: [AuthGuard],
+  },
 ];
 
 @NgModule({

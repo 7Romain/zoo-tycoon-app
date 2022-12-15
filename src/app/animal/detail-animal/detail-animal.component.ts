@@ -29,13 +29,20 @@ export class DetailAnimalComponent implements OnInit {
     this.router.navigate(["/animaux"]);
   }
 
-  rentrerAnimal(id: string, obs: string) {
-    this.animalService.rentrerAnimal(id, obs);
-    // this.router.navigate(["/animaux", id]);
-    // location.reload();
-  }
   sortirAnimal(id: string, obs: string) {
-    this.animalService.sortirAnimal(id, obs);
-    // location.reload();
+    this.animalService.sortirAnimal(id, obs).subscribe({
+      next: (data) => {
+        this.animal = data[0];
+      },
+      error: (error) => console.log(error),
+    });
+  }
+  rentrerAnimal(id: string, obs: string) {
+    this.animalService.rentrerAnimal(id, obs).subscribe({
+      next: (data) => {
+        this.animal = data[0];
+      },
+      error: (error) => console.log(error),
+    });
   }
 }
