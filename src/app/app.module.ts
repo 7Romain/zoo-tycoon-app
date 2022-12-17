@@ -8,6 +8,9 @@ import { PageNotFoundComponent } from "./page-not-found/page-not-found.component
 import { AnimalModule } from "./animal/animal.module";
 import { LoginComponent } from "./login/login.component";
 import { FormsModule } from "@angular/forms";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { MatExpansionModule } from "@angular/material/expansion";
+import { CookieService } from "ngx-cookie-service";
 
 @NgModule({
   declarations: [AppComponent, PageNotFoundComponent, LoginComponent],
@@ -18,8 +21,10 @@ import { FormsModule } from "@angular/forms";
     AnimalModule,
     AppRoutingModule,
     HttpClientJsonpModule,
+    BrowserAnimationsModule,
+    MatExpansionModule,
   ],
-  providers: [AnimalService],
+  providers: [AnimalService, CookieService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

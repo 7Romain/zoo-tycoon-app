@@ -49,4 +49,13 @@ export class AnimalService {
       { withCredentials: true }
     );
   }
+
+  soignerAnimal(animalId: string, observations: string): Observable<any> {
+    this.requete = new RequeteIoAnimal(animalId, observations);
+    return this.http.post(
+      "http://localhost:9003/api/animaux/soigner",
+      this.requete,
+      { withCredentials: true }
+    );
+  }
 }

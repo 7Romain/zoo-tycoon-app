@@ -1,4 +1,8 @@
 {
     "workbench.editor.historyBasedLanguageDetection": false,
-    "workbench.editor.languageDetection": false
+    "workbench.editor.languageDetection": false,
+    "docwriter.progress.trackFunctions": true,
+    "docwriter.progress.trackMethods": true,
+    "docwriter.progress.trackClasses": false,
+    "docwriter.progress.trackTypes": true
 }

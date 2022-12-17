@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { MatExpansionPanel } from "@angular/material/expansion";
 import { ActivatedRoute, Router } from "@angular/router";
 import { Animal } from "../animal";
 import { AnimalService } from "../animal.service";
@@ -9,8 +10,12 @@ import { AnimalService } from "../animal.service";
   styles: [],
 })
 export class DetailAnimalComponent implements OnInit {
+  panel: MatExpansionPanel;
+  panelOpenState = false;
   animalList: Animal[];
   animal: Animal | undefined;
+  obs: string = "";
+  accordeon: any;
 
   constructor(
     private router: Router,
@@ -40,9 +45,32 @@ export class DetailAnimalComponent implements OnInit {
   rentrerAnimal(id: string, obs: string) {
     this.animalService.rentrerAnimal(id, obs).subscribe({
       next: (data) => {
+        /* Taking the first element of the array and assigning it to the animal variable. */
         this.animal = data[0];
       },
       error: (error) => console.log(error),
     });
+  }
+  deplacerAnimal() {
+    if (this.animal) {
+      if (this.animal.localisation == "dehors") {
+        this.rentrerAnimal(this.animal.id, this.obs);
+      } else {
+        this.sortirAnimal(this.animal.id, this.obs);
+      }
+    }
+    this.obs = "";
+    this.panelOpenState = false;
+  }
+
+  soignerAnimal() {
+    if (this.animal) {
+      this.animalService.soignerAnimal(this.animal.id, this.obs).subscribe({
+        next: () => {},
+        error: (error) => console.log(error),
+      });
+    }
+    this.obs = "";
+    this.panelOpenState = false;
   }
 }

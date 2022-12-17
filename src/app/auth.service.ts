@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
+import { Observable, tap } from "rxjs";
 import { HttpClient } from "@angular/common/http";
 import { User } from "./user";
 
@@ -14,27 +14,52 @@ export class AuthService {
   user: User;
   constructor(private http: HttpClient) {}
 
-  login(name: string, password: string): Observable<boolean> {
+  login(name: string, password: string): Observable<User> {
     const loginData = { username: name, password: password };
 
-    return new Observable((observer) => {
-      this.http
-        .post(this.loginUrl, loginData, { withCredentials: true })
-        .subscribe({
-          next: () => {
-            this.isLoggedIn = true;
-            observer.next(true);
-            observer.complete();
-          },
-          error: (error) => {
-            this.isLoggedIn = false;
-            observer.next(false);
-            observer.error(error);
-            observer.complete();
-          },
-        });
-    });
+    return this.http
+      .post<User>(this.loginUrl, loginData, { withCredentials: true })
+      .pipe(
+        tap((user) => {
+          this.user = user;
+          this.isLoggedIn = true;
+          // localStorage.setItem('localUser', JSON.stringify(user));
+          if (user.username) {
+            localStorage.setItem("localUser", user.username);
+          }
+          console.log(this.user);
+        })
+      );
   }
+
+  //   userName(user:User):Observable<string> {
+  //     return new Observable((observer)=>
+  //     { if(user.username){observer.next(user.username)}
+  // observer.complete();
+  //     })
+  //   }
+
+  // login(name: string, password: string): Observable<boolean> {
+  //   const loginData = { username: name, password: password };
+
+  //   return new Observable((observer) => {
+  //     this.http
+  //       .post(this.loginUrl, loginData, { withCredentials: true })
+  //       .subscribe({
+  //         next: () => {
+  //           this.isLoggedIn = true;
+  //           observer.next(true);
+  //           observer.complete();
+  //         },
+  //         error: (error) => {
+  //           this.isLoggedIn = false;
+  //           observer.next(false);
+  //           observer.error(error);
+  //           observer.complete();
+  //         },
+  //       });
+  //   });
+  // }
 
   logout() {
     return new Observable<boolean>((observer) => {

@@ -1,3 +1,21 @@
+.mat-content {
+    display: flex;
+    justify-content: center;
+    margin-left: -12px;
+}
+
+.flex-end {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+.x-end {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 15px;
+}
+
 caption {
     display: none;
 }
@@ -86,4 +104,20 @@ caption {
     position: absolute;
     top: 5px;
     right: 15px;
+}
+
+.deco2 {
+    position: absolute;
+    top: 25px;
+    right: 15px;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
 }

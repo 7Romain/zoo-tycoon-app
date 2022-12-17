@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { AuthService } from "../auth.service";
 import { User } from "../user";
+import { AppComponent } from "../app.component";
 
 @Component({
   selector: "login",
@@ -14,7 +15,11 @@ export class LoginComponent implements OnInit {
   auth: AuthService;
   user: User;
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private appComponent: AppComponent
+  ) {}
 
   ngOnInit() {
     this.auth = this.authService;
@@ -28,19 +33,56 @@ export class LoginComponent implements OnInit {
     }
   }
 
+  // login(): void {
+  //   this.message = "Tentative de conexion en cours...";
+  //   this.auth.login(this.name, this.password).subscribe((reponse: User) => {
+  //     this.setMessage();
+  //     console.log(reponse);
+
+  //     if (reponse) {
+  //       // this.appComponent.majUser();
+  //       this.router.navigate(["/animaux"]);
+  //     } else {
+  //       this.password = "";
+  //       this.router.navigate(["/login"]);
+  //     }
+  //   });
+  // }
+
   login(): void {
     this.message = "Tentative de conexion en cours...";
-    this.auth.login(this.name, this.password).subscribe((reponse: boolean) => {
-      this.setMessage();
-
-      if (reponse) {
+    this.auth.login(this.name, this.password).subscribe({
+      next: (user: User) => {
+        this.setMessage();
+        console.log(user);
+        if (user.username) {
+          this.appComponent.majUser(user.username);
+        }
         this.router.navigate(["/animaux"]);
-      } else {
+      },
+      error: (error) => {
+        this.setMessage();
+        console.log(error);
         this.password = "";
         this.router.navigate(["/login"]);
-      }
+      },
     });
   }
+
+  // login(): void {
+  //   this.message = "Tentative de conexion en cours...";
+  //   this.auth.login(this.name, this.password).subscribe((reponse: boolean) => {
+  //     this.setMessage();
+
+  //     if (reponse) {
+  //       this.router.navigate(["/animaux"]);
+  //     } else {
+  //       this.password = "";
+  //       this.router.navigate(["/login"]);
+  //     }
+  //   });
+  // }
+
   logout() {
     this.auth.logout();
     this.message = "Vous êtes déconnecté.";

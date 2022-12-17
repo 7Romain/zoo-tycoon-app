@@ -1,6 +1,6 @@
 <div *ngIf="animal" class="row">
-    <div class="col s12 m8 offset-m2">
-        <h2 class="header center">{{ animal.nom }}</h2>
+    <div class="col s12 m10 offset-m1">
+        <!-- <h2 class="header center">{{ animal.nom }}</h2> -->
         <div class="card horizontal hoverable teal lighten-5">
             <div class="card-image center valign-wrapper center-align">
                 <img class="borderimg ml" src="\assets\image\{{animal.id}}.webp" alt="image de l'individu">
@@ -28,8 +28,6 @@
                                 <td>Loacalisation</td>
                                 <td *ngIf="animal.localisation=='dedans'">
                                     Est à l'intérieur</td>
-
-
                                 <td *ngIf="animal.localisation=='dehors'">
                                     Est à l'extérieur
                                 </td>
@@ -49,16 +47,58 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="card-action center">
 
-                    <a (click)="goToanimalList()">Retour</a>
-                    <a *ngIf="animal.localisation=='dehors'" (click)="rentrerAnimal(animal.id, 'Ras')">Rentrer</a>
-                    <a *ngIf="animal.localisation=='dedans'" (click)="sortirAnimal(animal.id, 'Ras')">Sortir</a>
+                <mat-accordion class="card-action center">
 
 
-                </div>
+                    <mat-expansion-panel hideToggle class="teal lighten-5" id="accordion" [expanded]="panelOpenState"
+                        (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                        <mat-expansion-panel-header class="center  valign-wrapper center-align centerTitle">
+                            <div class="center card-action valign-wrapper center-align centerTitle">ACTIONS</div>
+
+                        </mat-expansion-panel-header>
+                        <mat-tab-group dynamicHeight>
+                            <mat-tab>
+                                <ng-template mat-tab-label>
+                                    <a *ngIf="animal.localisation=='dehors'">Rentrer</a>
+                                    <a *ngIf="animal.localisation=='dedans'">Sortir</a>
+                                </ng-template>
+                                <form (ngSubmit)="deplacerAnimal()" #ioForm="ngForm">
+                                    <label for="observations">Observations</label>
+                                    <input type="text" id="observations" name="observations"
+                                        pattern="^[a-zA-Z0-9àéèç]{1,25}$" [(ngModel)]="obs">
+                                    <div class="divider"></div>
+                                    <div class="section center">
+                                        <button type="submit" class="waves-effect waves-light btn">
+                                            DEPLACER</button>
+                                    </div>
+                                </form>
+
+                            </mat-tab>
+                            <mat-tab>
+                                <ng-template mat-tab-label>
+                                    <a>Soins</a>
+                                </ng-template>
+                                <form (ngSubmit)="soignerAnimal()" #ioForm2="ngForm">
+                                    <label for="observations2">Observations</label>
+                                    <input type="text" id="observations2" name="observations2"
+                                        pattern="^[a-zA-Z0-9àéèç]{1,25}$" [(ngModel)]="obs">
+                                    <div class="divider"></div>
+                                    <div class="section center">
+                                        <button type="submit" class="waves-effect waves-light btn">
+                                            SOIGNER</button>
+                                    </div>
+                                </form>
+                            </mat-tab>
+                        </mat-tab-group>
+
+                    </mat-expansion-panel>
+                    <div class="flex-end"><a class="x-end" (click)="goToanimalList()">Retour</a></div>
+                </mat-accordion>
+
             </div>
         </div>
+
     </div>
 </div>
 <h4 *ngIf='!animal' class="center">
