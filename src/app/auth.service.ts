@@ -26,6 +26,7 @@ export class AuthService {
           // localStorage.setItem('localUser', JSON.stringify(user));
           if (user.username) {
             localStorage.setItem("localUser", user.username);
+            localStorage.setItem("roles", JSON.stringify(user.roles));
           }
           console.log(this.user);
         })

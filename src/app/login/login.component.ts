@@ -7,6 +7,7 @@ import { AppComponent } from "../app.component";
 @Component({
   selector: "login",
   templateUrl: "./login.component.html",
+  styleUrls: ["../../materialize.min.css"],
 })
 export class LoginComponent implements OnInit {
   message: string = "Vous êtes déconnecté.";
@@ -56,9 +57,9 @@ export class LoginComponent implements OnInit {
         this.setMessage();
         console.log(user);
         if (user.username) {
-          this.appComponent.majUser(user.username);
+          this.appComponent.majUser(user.username, user.roles);
         }
-        this.router.navigate(["/animaux"]);
+        this.router.navigate(["/especes"]);
       },
       error: (error) => {
         this.setMessage();

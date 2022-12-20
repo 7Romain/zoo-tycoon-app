@@ -7,10 +7,11 @@ import { AnimalService } from "./animal/animal.service";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 import { AnimalModule } from "./animal/animal.module";
 import { LoginComponent } from "./login/login.component";
-import { FormsModule } from "@angular/forms";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatExpansionModule } from "@angular/material/expansion";
 import { CookieService } from "ngx-cookie-service";
+import { EspeceModule } from "./espece/espece.module";
+import { FormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [AppComponent, PageNotFoundComponent, LoginComponent],
@@ -19,6 +20,7 @@ import { CookieService } from "ngx-cookie-service";
     FormsModule,
     HttpClientModule,
     AnimalModule,
+    EspeceModule,
     AppRoutingModule,
     HttpClientJsonpModule,
     BrowserAnimationsModule,

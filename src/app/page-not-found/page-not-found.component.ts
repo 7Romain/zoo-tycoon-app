@@ -13,7 +13,7 @@ import { Component, OnInit } from "@angular/core";
       </a>
     </div>
   `,
-  styles: [],
+  styleUrls: ["../../materialize.min.css"],
 })
 export class PageNotFoundComponent implements OnInit {
   ngOnInit(): void {}

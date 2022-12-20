@@ -1,0 +1,281 @@
+<div *ngIf="espece" class="row">
+    <div class="col s12 m10 l10 offset-l1 offset-m1 generalContainer">
+
+
+        <div class="card hoverable teal lighten-5 row flex-cont ">
+
+            <div class="card-image center valign-wrapper center-align col s12 m3 l4 imageContainer">
+                <img class="imageEspece" src="\assets\image\brut\{{espece.id}}.png" alt="image de l'espece">
+            </div>
+
+
+            <div class="card-content col s12 m9 l8 contentContainer">
+
+                <table class="bordered striped">
+                    <caption>Détail de l'espèce</caption>
+                    <tbody>
+                        <tr>
+                            <td class="center">Nom</td>
+                            <td class="center"><strong>{{ espece.nom }}</strong></td>
+                        </tr>
+                        <tr>
+                            <td class="center">Sociable</td>
+                            <td class="center" *ngIf="espece.sociable==true">Oui</td>
+                            <td class="center" *ngIf="espece.sociable==false">Non</td>
+                        </tr>
+                        <tr>
+                            <td class="center">Risques</td>
+                            <p class="center" *ngIf="espece.dangereux==true"><small class="chip red ">Dangereuse</small>
+                            </p>
+                            <p class="center" *ngIf="espece.dangereux==false"><small
+                                    class="chip green ">Inoffensive</small>
+                            </p>
+                        </tr>
+                        <tr *ngIf="espece.observations">
+                            <td class="center">
+                                Observations
+                            </td>
+                            <td>
+                                {{espece.observations}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="center">Enclos</td>
+                            <td class="center"><strong>{{ espece.idEnclos }}</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <mat-accordion class="card-action  center actionContainer">
+                <mat-expansion-panel hideToggle class="teal lighten-5" id="accordion" [expanded]="panelOpenState"
+                    (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                    <mat-expansion-panel-header class="center  valign-wrapper center-align centerTitle ">
+                        <div class="center card-action valign-wrapper center-align  ">ACTIONS</div>
+                    </mat-expansion-panel-header>
+                    <mat-tab-group dynamicHeight>
+                        <mat-tab>
+                            <ng-template mat-tab-label>
+                                <a>Déplacement</a>
+                            </ng-template>
+                            <form *ngIf="listAnimaux" #ioForm6="ngForm" class="form-group">
+                                <label for="observations5">Observations</label>
+                                <input type="text" class="form-control" id="observations5" name="obsIo"
+                                    [(ngModel)]="obsIo">
+                                <label>Réfractaire(s)</label>
+                                <p *ngFor="let animal of listAnimaux">
+                                    <label>
+                                        <input #checkboxes title="list des exceptions" type="checkbox"
+                                            id="{{ animal.id }}" [value]="animal.id" [checked]="coche"
+                                            (change)="selectAnimal($event, animal.id)" />
+                                        <span [attr.for]="animal.id">
+                                            <div>
+                                                {{ animal.nom }}
+                                            </div>
+                                        </span>
+                                    </label>
+                                </p>
+                                <div class="section center">
+                                    <button type="BUTTON" (click)="sortir()"
+                                        class="waves-effect waves-light btn espace">
+                                        SORTIR</button>
+                                    <button (click)="rentrer()" type="button"
+                                        class="waves-effect waves-light btn espace">
+                                        RENTRER</button>
+                                </div>
+                            </form>
+                        </mat-tab>
+                        <mat-tab *ngIf="isVeto()">
+                            <ng-template mat-tab-label>
+                                <a>Soins</a>
+                            </ng-template>
+                            <form (ngSubmit)="soignerEspece()" #ioForm2="ngForm">
+                                <label for="observations2">Observations</label>
+                                <input type="text" id="observations2" name="observations2"
+                                    pattern="^[a-zA-Z0-9àéèç]{1,25}$" [(ngModel)]="obs">
+                                <div class="divider"></div>
+                                <div class="section center">
+                                    <button type="submit" class="waves-effect waves-light btn">
+                                        SOIGNER</button>
+                                </div>
+                            </form>
+                        </mat-tab>
+                        <mat-tab>
+                            <ng-template mat-tab-label>
+                                <a>Stimulation</a>
+                            </ng-template>
+                            <form (ngSubmit)="stimulerEspece()" #ioForm3="ngForm">
+                                <label for="observations3">Observations</label>
+                                <input type="text" id="observations3" name="observations3"
+                                    pattern="^[a-zA-Z0-9àéèç]{1,25}$" [(ngModel)]="obs">
+                                <div class="divider"></div>
+                                <div class="section center">
+                                    <button type="submit" class="waves-effect waves-light btn">
+                                        STIMULER</button>
+                                </div>
+                            </form>
+                        </mat-tab>
+                        <mat-tab>
+                            <ng-template mat-tab-label>
+                                <a>Alimentation</a>
+                            </ng-template>
+                            <form (ngSubmit)="nourrirEspece()" #ioForm4="ngForm">
+                                <label for="observations4">Observations</label>
+                                <input type="text" id="observations4" name="observations4"
+                                    pattern="^[a-zA-Z0-9àéèç]{1,25}$" [(ngModel)]="obs">
+                                <div class="divider"></div>
+                                <div class="section center">
+                                    <button type="submit" class="waves-effect waves-light btn">
+                                        NOURRIR</button>
+                                </div>
+                            </form>
+                        </mat-tab>
+                    </mat-tab-group>
+                </mat-expansion-panel>
+                <div class="flex-end"><a class="x-end" (click)="goToEspeceList()">Retour</a></div>
+            </mat-accordion>
+
+        </div>
+
+        <!-- <div class="bigScreen">
+            <div class="card horizontal hoverable teal lighten-5 ">
+                <div class="card-image center valign-wrapper center-align col s12 m3 l4">
+                    <img src="\assets\image\brut\{{espece.id}}.png" alt="image de l'espece">
+                </div>
+                <div class="card-stacked col s12 m9 l8">
+                    <div class="card-content">
+
+                        <table class="bordered striped">
+                            <caption>Détail de l'espèce</caption>
+                            <tbody>
+                                <tr>
+                                    <td class="center">Nom</td>
+                                    <td class="center"><strong>{{ espece.nom }}</strong></td>
+                                </tr>
+                                <tr>
+                                    <td class="center">Sociable</td>
+                                    <td class="center" *ngIf="espece.sociable==true">Oui</td>
+                                    <td class="center" *ngIf="espece.sociable==false">Non</td>
+                                </tr>
+                                <tr>
+                                    <td class="center">Risques</td>
+                                    <p class="center" *ngIf="espece.dangereux==true"><small
+                                            class="chip red ">Dangereuse</small>
+                                    </p>
+                                    <p class="center" *ngIf="espece.dangereux==false"><small
+                                            class="chip green ">Inoffensive</small>
+                                    </p>
+                                </tr>
+                                <tr *ngIf="espece.observations">
+                                    <td class="center">
+                                        Observations
+                                    </td>
+                                    <td>
+                                        {{espece.observations}}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="center">Enclos</td>
+                                    <td class="center"><strong>{{ espece.idEnclos }}</strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <mat-accordion class="card-action center">
+                        <mat-expansion-panel hideToggle class="teal lighten-5" id="accordion"
+                            [expanded]="panelOpenState" (opened)="panelOpenState = true"
+                            (closed)="panelOpenState = false">
+                            <mat-expansion-panel-header class="center  valign-wrapper center-align centerTitle">
+                                <div class="center card-action valign-wrapper center-align ">ACTIONS</div>
+                            </mat-expansion-panel-header>
+                            <mat-tab-group dynamicHeight>
+                                <mat-tab>
+                                    <ng-template mat-tab-label>
+                                        <a>Déplacement</a>
+                                    </ng-template>
+                                    <form *ngIf="listAnimaux" #ioForm6="ngForm" class="form-group">
+
+                                        <label for="observations5">Observations</label>
+                                        <input type="text" class="form-control" id="observations5" name="obsIo"
+                                            [(ngModel)]="obsIo">
+                                        <label>Réfractaire(s)</label>
+                                        <p *ngFor="let animal of listAnimaux">
+                                            <label>
+                                                <input #checkboxes title="list des exceptions" type="checkbox"
+                                                    id="{{ animal.id }}" [value]="animal.id" [checked]="coche"
+                                                    (change)="selectAnimal($event, animal.id)" />
+                                                <span [attr.for]="animal.id">
+                                                    <div>
+                                                        {{ animal.nom }}
+                                                    </div>
+                                                </span>
+                                            </label>
+                                        </p>
+                                        <div class="section center">
+                                            <button type="BUTTON" (click)="sortir()"
+                                                class="waves-effect waves-light btn espace">
+                                                SORTIR</button>
+                                            <button (click)="rentrer()" type="button"
+                                                class="waves-effect waves-light btn espace">
+                                                RENTRER</button>
+                                        </div>
+                                    </form>
+                                </mat-tab>
+                                <mat-tab *ngIf="isVeto()">
+                                    <ng-template mat-tab-label>
+                                        <a>Soins</a>
+                                    </ng-template>
+                                    <form (ngSubmit)="soignerEspece()" #ioForm2="ngForm">
+                                        <label for="observations2">Observations</label>
+                                        <input type="text" id="observations2" name="observations2"
+                                            pattern="^[a-zA-Z0-9àéèç]{1,25}$" [(ngModel)]="obs">
+                                        <div class="divider"></div>
+                                        <div class="section center">
+                                            <button type="submit" class="waves-effect waves-light btn">
+                                                SOIGNER</button>
+                                        </div>
+                                    </form>
+                                </mat-tab>
+                                <mat-tab>
+                                    <ng-template mat-tab-label>
+                                        <a>Stimulation</a>
+                                    </ng-template>
+                                    <form (ngSubmit)="stimulerEspece()" #ioForm3="ngForm">
+                                        <label for="observations3">Observations</label>
+                                        <input type="text" id="observations3" name="observations3"
+                                            pattern="^[a-zA-Z0-9àéèç]{1,25}$" [(ngModel)]="obs">
+                                        <div class="divider"></div>
+                                        <div class="section center">
+                                            <button type="submit" class="waves-effect waves-light btn">
+                                                STIMULER</button>
+                                        </div>
+                                    </form>
+                                </mat-tab>
+                                <mat-tab>
+                                    <ng-template mat-tab-label>
+                                        <a>Alimentation</a>
+                                    </ng-template>
+                                    <form (ngSubmit)="nourrirEspece()" #ioForm4="ngForm">
+                                        <label for="observations4">Observations</label>
+                                        <input type="text" id="observations4" name="observations4"
+                                            pattern="^[a-zA-Z0-9àéèç]{1,25}$" [(ngModel)]="obs">
+                                        <div class="divider"></div>
+                                        <div class="section center">
+                                            <button type="submit" class="waves-effect waves-light btn">
+                                                NOURRIR</button>
+                                        </div>
+                                    </form>
+                                </mat-tab>
+                            </mat-tab-group>
+                        </mat-expansion-panel>
+                        <div class="flex-end"><a class="x-end" (click)="goToEspeceList()">Retour</a></div>
+                    </mat-accordion>
+                </div>
+            </div>
+        </div> -->
+
+    </div>
+</div>
+<h4 *ngIf='!espece' class="center">
+    Aucune espèce à afficher.
+
+</h4>

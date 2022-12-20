@@ -7,9 +7,9 @@ import { AnimalService } from "../animal.service";
 @Component({
   selector: "app-list-animaux",
   templateUrl: "./list-animaux.component.html",
+  styleUrls: ["../../../materialize.min.css"],
 })
 export class ListAnimauxComponent implements OnInit {
-  cookieJwt: string;
   constructor(private animalService: AnimalService, private router: Router) {}
 
   animalList: Animal[];

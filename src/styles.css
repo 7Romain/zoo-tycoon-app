@@ -2,7 +2,23 @@
     display: flex;
     justify-content: center;
     margin-left: -12px;
+
 }
+
+.nav-wrapper,
+.naviTaille {
+    height: 150%;
+    display: block;
+}
+
+
+
+
+
+.espace {
+    margin: 10px 10px 10px 10px;
+}
+
 
 .flex-end {
     display: flex;
@@ -15,6 +31,43 @@
     justify-content: flex-end;
     margin-top: 15px;
 }
+
+.taille-image {
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.containerflex {
+    display: flex;
+}
+
+.place-image {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+#accordion {
+
+
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.mat-accordion {
+    width: 95%;
+    padding: 1px;
+}
+
+.card,
+.card-action {
+    /* padding: 0px; */
+}
+
+
 
 caption {
     display: none;
@@ -87,6 +140,12 @@ caption {
     width: auto;
 }
 
+.container1 {
+    flex-wrap: wrap;
+}
+
+
+
 .nav-wrapper-taille {
     height: 150px;
 }
@@ -120,4 +179,46 @@ body {
 body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.generalContainer {
+    margin: 25px;
+}
+
+@media (max-width: 600px) {
+    .generalContainer {
+        flex-direction: column-reverse;
+    }
+
+    .imageContainer {
+
+        height: 350px;
+    }
+
+
+    .imageEspece {
+        height: 100%;
+        object-fit: contain
+    }
+
+    /* .imageContainer {
+        max-height: 350px;
+        max-width: auto;
+        width: auto;
+
+    }
+
+    .imageEspece {
+        max-height: 100%;
+    } */
+}
+
+
+@media (min-width: 601px) {
+
+
+    .imageContainer {
+        margin-top: 65px;
+    }
+
 }

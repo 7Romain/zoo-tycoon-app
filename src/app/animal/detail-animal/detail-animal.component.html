@@ -72,10 +72,11 @@
                                         <button type="submit" class="waves-effect waves-light btn">
                                             DEPLACER</button>
                                     </div>
+
                                 </form>
 
                             </mat-tab>
-                            <mat-tab>
+                            <mat-tab *ngIf="isVeto()">
                                 <ng-template mat-tab-label>
                                     <a>Soins</a>
                                 </ng-template>
@@ -90,6 +91,39 @@
                                     </div>
                                 </form>
                             </mat-tab>
+
+                            <mat-tab>
+                                <ng-template mat-tab-label>
+                                    <a>Stimulation</a>
+                                </ng-template>
+                                <form (ngSubmit)="stimulerAnimal()" #ioForm2="ngForm">
+                                    <label for="observations3">Observations</label>
+                                    <input type="text" id="observations3" name="observations3"
+                                        pattern="^[a-zA-Z0-9àéèç]{1,25}$" [(ngModel)]="obs">
+                                    <div class="divider"></div>
+                                    <div class="section center">
+                                        <button type="submit" class="waves-effect waves-light btn">
+                                            STIMULER</button>
+                                    </div>
+                                </form>
+                            </mat-tab>
+
+                            <mat-tab>
+                                <ng-template mat-tab-label>
+                                    <a>Alimentation</a>
+                                </ng-template>
+                                <form (ngSubmit)="nourrirAnimal()" #ioForm2="ngForm">
+                                    <label for="observations4">Observations</label>
+                                    <input type="text" id="observations4" name="observations4"
+                                        pattern="^[a-zA-Z0-9àéèç]{1,25}$" [(ngModel)]="obs">
+                                    <div class="divider"></div>
+                                    <div class="section center">
+                                        <button type="submit" class="waves-effect waves-light btn">
+                                            NOURRIR</button>
+                                    </div>
+                                </form>
+                            </mat-tab>
+
                         </mat-tab-group>
 
                     </mat-expansion-panel>

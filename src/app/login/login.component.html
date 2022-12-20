@@ -1,5 +1,5 @@
-<div class='row'>
-    <div class="col s12 m4 offset-m4">
+<div class='row margin-top50'>
+    <div class="col s12 m6 offset-m3">
         <div class="card hoverable">
             <div class="card-content center">
                 <span class="card-title">Page de connexion</span>
@@ -17,7 +17,7 @@
                 </div>
             </form>
             <div class="card-action center">
-                <a (click)="login()" class="waves-effect waves-light btn" *ngIf="!auth.isLoggedIn">Se
+                <a (click)="login()" class="waves-effect waves-light btn espace" *ngIf="!auth.isLoggedIn">Se
                     connecter</a>
                 <a (click)="logout()" *ngIf="auth.isLoggedIn">Se déconnecter</a>
             </div>

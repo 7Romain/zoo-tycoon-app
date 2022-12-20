@@ -32,8 +32,12 @@ export class AnimalService {
     return of(errorValue);
   }
 
-  rentrerAnimal(animalId: string, observations: string): Observable<any> {
-    this.requete = new RequeteIoAnimal(animalId, observations);
+  rentrerAnimal(
+    animalId: string,
+    observations: string,
+    user: string | null
+  ): Observable<any> {
+    this.requete = new RequeteIoAnimal(animalId, observations, user);
     return this.http.post(
       "http://localhost:9003/api/animaux/entrer",
       this.requete,
@@ -41,8 +45,12 @@ export class AnimalService {
     );
   }
 
-  sortirAnimal(animalId: string, observations: string): Observable<any> {
-    this.requete = new RequeteIoAnimal(animalId, observations);
+  sortirAnimal(
+    animalId: string,
+    observations: string,
+    user: string | null
+  ): Observable<any> {
+    this.requete = new RequeteIoAnimal(animalId, observations, user);
     return this.http.post(
       "http://localhost:9003/api/animaux/sortir",
       this.requete,
@@ -50,10 +58,40 @@ export class AnimalService {
     );
   }
 
-  soignerAnimal(animalId: string, observations: string): Observable<any> {
-    this.requete = new RequeteIoAnimal(animalId, observations);
+  soignerAnimal(
+    animalId: string,
+    observations: string,
+    user: string | null
+  ): Observable<any> {
+    this.requete = new RequeteIoAnimal(animalId, observations, user);
     return this.http.post(
       "http://localhost:9003/api/animaux/soigner",
+      this.requete,
+      { withCredentials: true }
+    );
+  }
+
+  stimulerAnimal(
+    animalId: string,
+    observations: string,
+    user: string | null
+  ): Observable<any> {
+    this.requete = new RequeteIoAnimal(animalId, observations, user);
+    return this.http.post(
+      "http://localhost:9003/api/animaux/stimuler",
+      this.requete,
+      { withCredentials: true }
+    );
+  }
+
+  nourrirAnimal(
+    animalId: string,
+    observations: string,
+    user: string | null
+  ): Observable<any> {
+    this.requete = new RequeteIoAnimal(animalId, observations, user);
+    return this.http.post(
+      "http://localhost:9003/api/animaux/nourrir",
       this.requete,
       { withCredentials: true }
     );

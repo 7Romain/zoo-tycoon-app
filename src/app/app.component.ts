@@ -7,6 +7,7 @@ import { User } from "./user";
 @Component({
   selector: "app-root",
   templateUrl: "app.component.html",
+  // styleUrls: ["../materialize.min.css"],
 })
 export class AppComponent {
   auth: AuthService;
@@ -36,9 +37,9 @@ export class AppComponent {
     localStorage.clear();
   }
 
-  majUser(username: string) {
+  majUser(username: string, roles: string[]) {
     this.user.username = username;
-    console.log(localStorage.getItem("localUser"));
+    this.user.roles = roles;
 
     /*  if(localStorage.getItem("localUser")){
       this.user = JSON.parse(localStorage.getItem("localUser"));

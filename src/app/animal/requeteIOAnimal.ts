@@ -1,10 +1,11 @@
 export class RequeteIoAnimal {
   idAnimal: string;
-  iDPersonnel: number;
+  username: string | null;
   observations: string;
 
-  constructor(idAnimal: string, observations: string) {
+  constructor(idAnimal: string, observations: string, username: string | null) {
     this.idAnimal = idAnimal;
     this.observations = observations;
+    this.username = username;
   }
 }
