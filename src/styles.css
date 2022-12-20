@@ -182,6 +182,10 @@ body {
     margin: 25px;
 }
 
+#colorbtn {
+    background-color: #d4a958;
+}
+
 @media (max-width: 600px) {
     .generalContainer {
         flex-direction: column-reverse;

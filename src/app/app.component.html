@@ -1,6 +1,7 @@
 <nav class="nav-wrapper-taille naviTaille teal">
     <div class="nav-wrapper naviTaille teal">
-        <a class="deco" (click)="logout()" *ngIf="auth.isLoggedIn">Déconnexion</a>
+        <a class="deco" (click)="logout()" *ngIf="auth.isLoggedIn"><button class="waves-effect waves-light btn-small"
+                id="colorbtn">Déconnexion</button></a>
         <p class="deco2 maj" *ngIf="auth.isLoggedIn && user"> {{user.username}}</p>
         <a class="brand-logo center">
             <img class="imageLogo" src="\assets\image\Logo.png" alt="Z00">

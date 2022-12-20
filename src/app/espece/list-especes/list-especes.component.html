@@ -1,12 +1,12 @@
 <div class="container">
     <div class="row">
 
-        <div class="col xl3 l4 m6 s12" *ngFor="let espece of especeList">
-            <div (click)="goToEspece(espece)" class="card horizontal teal lighten-5" appBorderCard>
-                <div class="card-image center valign-wrapper center-align "><img
+        <div class="col  l4 m6 s12" *ngFor="let espece of especeList">
+            <div (click)="goToEspece(espece)" class="card horizontal teal lighten-5 hauteur-card" appBorderCard>
+                <div class="card-image center valign-wrapper center-align fitContent"><img class="hauteur-mage"
                         src="\assets\image\brut\{{espece.id}}.png" alt="image de l'espece"></div>
-                <div class="card-stacked  ">
-                    <div class="card-content">
+                <div class="card-stacked fitContent ">
+                    <div class="card-content fitContent">
                         <p class="center relief">{{espece.nom}}</p>
                         <div class="space2"></div>
                         <p class="center" *ngIf="espece.dangereux==true"><small class="chip red ">Dangereuse</small>

@@ -2142,8 +2142,7 @@
 /*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
 html {
     line-height: 1.15;
-    -ms-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%
+
 }
 
 body {
@@ -9094,6 +9093,11 @@ input[type=range]::-ms-thumb {
     padding: 0 20px
 }
 
+
+.colorBtn {
+    background-color: blue;
+}
+
 @media only screen and (min-width: 601px) {
     .timepicker-modal {
         max-width: 600px
@@ -9128,6 +9132,38 @@ input[type=range]::-ms-thumb {
     margin-top: 50px;
 }
 
+
+
+
+.listCont {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+
+}
+
+
+@media (min-width: 601px) {
+
+    .hauteur-card {
+
+        max-height: 140px;
+        min-height: 140px;
+        width: auto;
+    }
+
+    .fitContent {
+        object-fit: contain
+    }
+
+    .hauteur-mage {
+        width: auto;
+        max-height: 139px;
+    }
+}
+
 @media (max-width: 600px) {
 
 
@@ -9147,5 +9183,7 @@ input[type=range]::-ms-thumb {
         display: flex;
         flex-direction: column;
     }
+
+
 
 }
