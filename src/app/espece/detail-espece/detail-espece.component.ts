@@ -79,7 +79,7 @@ export class DetailEspeceComponent implements OnInit {
 
   sortir() {
     if (this.espece) {
-      console.log("sortie0" + this.obsIo);
+      console.log("message d'observation" + this.obsIo);
       this.especeService
         .sortirEspece(this.espece.id, this.obsIo, this.user, this.idAnimaux)
         .subscribe({
@@ -98,6 +98,7 @@ export class DetailEspeceComponent implements OnInit {
   }
   rentrer() {
     if (this.espece) {
+      console.log("message d'observation" + this.obsIo);
       this.especeService
         .rentrerEspece(this.espece.id, this.obsIo, this.user, this.idAnimaux)
         .subscribe({
