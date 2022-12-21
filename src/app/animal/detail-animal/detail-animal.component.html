@@ -1,136 +1,136 @@
 <div *ngIf="animal" class="row">
-    <div class="col s12 m10 offset-m1">
-        <!-- <h2 class="header center">{{ animal.nom }}</h2> -->
-        <div class="card horizontal hoverable teal lighten-5">
-            <div class="card-image center valign-wrapper center-align">
-                <img class="borderimg ml" src="\assets\image\{{animal.id}}.webp" alt="image de l'individu">
+    <div class="col s12 m10 l10 offset-l1 offset-m1 generalContainer">
+
+        <div class="card hoverable teal lighten-5 row flex-cont">
+            <div class="card-image center valign-wrapper center-align col s12 m3 l4 imageContainer">
+                <img class="borderimg ml especeCard" src="\assets\image\{{animal.id}}.webp" alt="image de l'individu">
             </div>
-            <div class="card-stacked">
-                <div class="card-content">
-                    <!-- A materialize css class. -->
-                    <table class="bordered striped">
-                        <caption>Détail de l'animal</caption>
-                        <tbody>
-                            <tr>
-                                <td>Nom</td>
-                                <td><strong>{{ animal.nom }}</strong></td>
-                            </tr>
-                            <tr>
-                                <td>Espèce</td>
-                                <td class="maj"><strong>{{ animal.espece }}</strong></td>
-                            </tr>
-                            <tr>
-                                <td>Sexe</td>
-                                <td *ngIf="animal.sexe=='M'"><strong>Mâle</strong></td>
-                                <td *ngIf="animal.sexe=='F'"><strong>Femelle</strong></td>
-                            </tr>
-                            <tr>
-                                <td>Loacalisation</td>
-                                <td *ngIf="animal.localisation=='dedans'">
-                                    Est à l'intérieur</td>
-                                <td *ngIf="animal.localisation=='dehors'">
-                                    Est à l'extérieur
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Date de naissance</td>
-                                <td><em>{{ animal.naissance | date:"dd/MM/yyyy" }}</em></td>
-                            </tr>
-                            <tr *ngIf="animal.observations">
-                                <td>
-                                    Observations
-                                </td>
-                                <td>
-                                    {{animal.observations}}
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
 
-                <mat-accordion class="card-action center">
+            <div class="card-content col s12 m9 l8 contentContainer">
 
-
-                    <mat-expansion-panel hideToggle class="teal lighten-5" id="accordion" [expanded]="panelOpenState"
-                        (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-                        <mat-expansion-panel-header class="center  valign-wrapper center-align centerTitle">
-                            <div class="center card-action valign-wrapper center-align centerTitle">ACTIONS</div>
-
-                        </mat-expansion-panel-header>
-                        <mat-tab-group dynamicHeight>
-                            <mat-tab>
-                                <ng-template mat-tab-label>
-                                    <a *ngIf="animal.localisation=='dehors'">Rentrer</a>
-                                    <a *ngIf="animal.localisation=='dedans'">Sortir</a>
-                                </ng-template>
-                                <form (ngSubmit)="deplacerAnimal()" #ioForm="ngForm">
-                                    <label for="observations">Observations</label>
-                                    <input type="text" id="observations" name="observations"
-                                        pattern="^[a-zA-Z0-9àéèç]{1,25}$" [(ngModel)]="obs">
-                                    <div class="divider"></div>
-                                    <div class="section center">
-                                        <button type="submit" class="waves-effect waves-light btn">
-                                            DEPLACER</button>
-                                    </div>
-
-                                </form>
-
-                            </mat-tab>
-                            <mat-tab *ngIf="isVeto()">
-                                <ng-template mat-tab-label>
-                                    <a>Soins</a>
-                                </ng-template>
-                                <form (ngSubmit)="soignerAnimal()" #ioForm2="ngForm">
-                                    <label for="observations2">Observations</label>
-                                    <input type="text" id="observations2" name="observations2"
-                                        pattern="^[a-zA-Z0-9àéèç]{1,25}$" [(ngModel)]="obs">
-                                    <div class="divider"></div>
-                                    <div class="section center">
-                                        <button type="submit" class="waves-effect waves-light btn">
-                                            SOIGNER</button>
-                                    </div>
-                                </form>
-                            </mat-tab>
-
-                            <mat-tab>
-                                <ng-template mat-tab-label>
-                                    <a>Stimulation</a>
-                                </ng-template>
-                                <form (ngSubmit)="stimulerAnimal()" #ioForm2="ngForm">
-                                    <label for="observations3">Observations</label>
-                                    <input type="text" id="observations3" name="observations3"
-                                        pattern="^[a-zA-Z0-9àéèç]{1,25}$" [(ngModel)]="obs">
-                                    <div class="divider"></div>
-                                    <div class="section center">
-                                        <button type="submit" class="waves-effect waves-light btn">
-                                            STIMULER</button>
-                                    </div>
-                                </form>
-                            </mat-tab>
-
-                            <mat-tab>
-                                <ng-template mat-tab-label>
-                                    <a>Alimentation</a>
-                                </ng-template>
-                                <form (ngSubmit)="nourrirAnimal()" #ioForm2="ngForm">
-                                    <label for="observations4">Observations</label>
-                                    <input type="text" id="observations4" name="observations4"
-                                        pattern="^[a-zA-Z0-9àéèç]{1,25}$" [(ngModel)]="obs">
-                                    <div class="divider"></div>
-                                    <div class="section center">
-                                        <button type="submit" class="waves-effect waves-light btn">
-                                            NOURRIR</button>
-                                    </div>
-                                </form>
-                            </mat-tab>
-
-                        </mat-tab-group>
-
-                    </mat-expansion-panel>
-                    <div class="flex-end"><a class="x-end" (click)="goToanimalList()">Retour</a></div>
-                </mat-accordion>
-
+                <table class="bordered striped">
+                    <caption>Détail de l'animal</caption>
+                    <tbody>
+                        <tr>
+                            <td>Nom</td>
+                            <td><strong>{{ animal.nom }}</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Espèce</td>
+                            <td class="maj"><strong>{{ animal.espece }}</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Sexe</td>
+                            <td *ngIf="animal.sexe=='M'"><strong>Mâle</strong></td>
+                            <td *ngIf="animal.sexe=='F'"><strong>Femelle</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Loacalisation</td>
+                            <td *ngIf="animal.localisation=='dedans'">
+                                Est à l'intérieur</td>
+                            <td *ngIf="animal.localisation=='dehors'">
+                                Est à l'extérieur
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Date de naissance</td>
+                            <td><em>{{ animal.naissance | date:"dd/MM/yyyy" }}</em></td>
+                        </tr>
+                        <tr *ngIf="animal.observations">
+                            <td>
+                                Observations
+                            </td>
+                            <td>
+                                {{animal.observations}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
+
+            <mat-accordion class="card-action center actionContainer">
+
+
+                <mat-expansion-panel hideToggle class="teal lighten-5" id="accordion" [expanded]="panelOpenState"
+                    (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                    <mat-expansion-panel-header class="center  valign-wrapper center-align centerTitle">
+                        <div class="center card-action valign-wrapper center-align centerTitle">ACTIONS</div>
+
+                    </mat-expansion-panel-header>
+                    <mat-tab-group dynamicHeight>
+                        <mat-tab>
+                            <ng-template mat-tab-label>
+                                <a *ngIf="animal.localisation=='dehors'">Rentrer</a>
+                                <a *ngIf="animal.localisation=='dedans'">Sortir</a>
+                            </ng-template>
+                            <form (ngSubmit)="deplacerAnimal()" #ioForm="ngForm">
+                                <label for="observations">Observations</label>
+                                <input type="text" id="observations" name="observations"
+                                    pattern="^[a-zA-Z0-9àéèç]{1,25}$" [(ngModel)]="obs">
+                                <div class="divider"></div>
+                                <div class="section center">
+                                    <button type="submit" class="waves-effect waves-light btn">
+                                        DEPLACER</button>
+                                </div>
+
+                            </form>
+
+                        </mat-tab>
+                        <mat-tab *ngIf="isVeto()">
+                            <ng-template mat-tab-label>
+                                <a>Soins</a>
+                            </ng-template>
+                            <form (ngSubmit)="soignerAnimal()" #ioForm2="ngForm">
+                                <label for="observations2">Observations</label>
+                                <input type="text" id="observations2" name="observations2"
+                                    pattern="^[a-zA-Z0-9àéèç]{1,25}$" [(ngModel)]="obs">
+                                <div class="divider"></div>
+                                <div class="section center">
+                                    <button type="submit" class="waves-effect waves-light btn">
+                                        SOIGNER</button>
+                                </div>
+                            </form>
+                        </mat-tab>
+
+                        <mat-tab>
+                            <ng-template mat-tab-label>
+                                <a>Stimulation</a>
+                            </ng-template>
+                            <form (ngSubmit)="stimulerAnimal()" #ioForm2="ngForm">
+                                <label for="observations3">Observations</label>
+                                <input type="text" id="observations3" name="observations3"
+                                    pattern="^[a-zA-Z0-9àéèç]{1,25}$" [(ngModel)]="obs">
+                                <div class="divider"></div>
+                                <div class="section center">
+                                    <button type="submit" class="waves-effect waves-light btn">
+                                        STIMULER</button>
+                                </div>
+                            </form>
+                        </mat-tab>
+
+                        <mat-tab>
+                            <ng-template mat-tab-label>
+                                <a>Alimentation</a>
+                            </ng-template>
+                            <form (ngSubmit)="nourrirAnimal()" #ioForm2="ngForm">
+                                <label for="observations4">Observations</label>
+                                <input type="text" id="observations4" name="observations4"
+                                    pattern="^[a-zA-Z0-9àéèç]{1,25}$" [(ngModel)]="obs">
+                                <div class="divider"></div>
+                                <div class="section center">
+                                    <button type="submit" class="waves-effect waves-light btn">
+                                        NOURRIR</button>
+                                </div>
+                            </form>
+                        </mat-tab>
+
+                    </mat-tab-group>
+
+                </mat-expansion-panel>
+                <div class="flex-end"><a class="x-end" (click)="goToanimalList()">Retour</a></div>
+            </mat-accordion>
+
+
         </div>
 
     </div>

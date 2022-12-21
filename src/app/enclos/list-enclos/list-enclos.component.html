@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="row">
+
+        <div class="col  l4 m6 s12 card-flex tailleCard " *ngFor="let enclos of enclosList">
+
+            <div (click)="goToEnclos(enclos)" class="card  teal lighten-5    tailleCard " appBorderCard>
+                <div>
+                    <div class="card-image  "><img class="  imgEnclos mCard"
+                            src="\assets\image\enclos\{{enclos.id}}.jpg" alt="image de l'enclos"></div>
+                </div>
+                <div class="card-content   ">
+                    <p class="center relief">{{enclos.nom}}</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

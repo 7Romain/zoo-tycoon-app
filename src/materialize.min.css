@@ -3,8 +3,22 @@
  * Copyright 2014-2017 Materialize
  * MIT License (https://raw.githubusercontent.com/Dogfalo/materialize/master/LICENSE)
  */
+
+.hauteur-image {
+    min-height: 185px;
+}
+
+.margeTexte {
+    margin: 0 5px;
+}
+
 .materialize-red {
     background-color: #e51c23 !important
+}
+
+.borderimg {
+    border: 2px inset teal;
+
 }
 
 .materialize-red-text {
@@ -9186,4 +9200,21 @@ input[type=range]::-ms-thumb {
 
 
 
+}
+
+.tailleCard {
+    max-height: 420px;
+}
+
+.card-flex {
+    display: flex;
+    align-content: center;
+}
+
+.imgEnclos {
+    object-fit: contain
+}
+
+.fit {
+    object-fit: contain
 }

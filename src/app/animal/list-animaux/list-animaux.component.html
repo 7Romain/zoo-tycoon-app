@@ -1,19 +1,22 @@
 <div class="container">
     <div class="row">
 
-        <div class="col xl3 l4 m6 s12" *ngFor="let animal of animalList">
-            <div (click)="goToanimal(animal)" class="card horizontal teal lighten-5" appBorderCard>
-                <div class="card-image center valign-wrapper center-align "><img class="borderimg"
+        <div class="col l4 m6 s12" *ngFor="let animal of animalList">
+            <div (click)="goToanimal(animal)" class="card  teal lighten-5 " appBorderCard>
+                <div class="card-image center valign-wrapper center-align "><img class="borderimg "
                         src="\assets\image\{{animal.id}}.webp" alt="image de l'individu"></div>
                 <div class="card-stacked  ">
-                    <div class="card-content">
-                        <p class="center relief">{{animal.nom}}</p>
+                    <div class="card-content center">
+
                         <div class="space2"></div>
-                        <p class="center" *ngIf="animal.sexe=='M'"><small class="chip blue">{{animal.sexe}}</small></p>
-                        <p class="center" *ngIf="animal.sexe=='F'"><small
-                                class="chip pink center">{{animal.sexe}}</small></p>
-                        <div class="space"></div>
-                        <p class="center" *ngIf="animal.naissance">{{animal.naissance | animalDateAge}} ans</p>
+                        <span class="center margeTexte" *ngIf="animal.sexe=='M'"><small
+                                class="chip blue">{{animal.sexe}}</small></span>
+                        <span class="center margeTexte" *ngIf="animal.sexe=='F'"><small class="chip pink center">
+                                {{animal.sexe}}</small></span>
+                        <span class="center relief margeTexte">{{animal.nom}}</span>
+                        <span class="cente margeTexter" *ngIf="animal.naissance"> {{animal.naissance | animalDateAge}}
+                            ans</span>
+
 
 
 

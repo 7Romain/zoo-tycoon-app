@@ -12,6 +12,7 @@ import { MatExpansionModule } from "@angular/material/expansion";
 import { CookieService } from "ngx-cookie-service";
 import { EspeceModule } from "./espece/espece.module";
 import { FormsModule } from "@angular/forms";
+import { EnclosModule } from "./enclos/enclos.module";
 
 @NgModule({
   declarations: [AppComponent, PageNotFoundComponent, LoginComponent],
@@ -21,6 +22,7 @@ import { FormsModule } from "@angular/forms";
     HttpClientModule,
     AnimalModule,
     EspeceModule,
+    EnclosModule,
     AppRoutingModule,
     HttpClientJsonpModule,
     BrowserAnimationsModule,

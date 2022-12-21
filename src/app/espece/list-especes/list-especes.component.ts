@@ -23,6 +23,4 @@ export class ListEspecesComponent implements OnInit {
   goToEspece(espece: Espece): void {
     this.router.navigate(["especes", espece.id]);
   }
-
-  sortir() {}
 }

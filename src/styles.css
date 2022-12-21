@@ -202,16 +202,14 @@ body {
         object-fit: contain
     }
 
-    /* .imageContainer {
-        max-height: 350px;
-        max-width: auto;
-        width: auto;
-
+    .especeCard {
+        margin-top: 25px;
     }
 
-    .imageEspece {
-        max-height: 100%;
-    } */
+    .tailleCard {
+        max-height: 420px;
+    }
+
 }
 
 
@@ -222,4 +220,18 @@ body {
         margin-top: 65px;
     }
 
+    .mCard {
+        height: 250px;
+        width: auto;
+    }
+
+    .tailleCard {
+        max-height: 325px;
+    }
+
+}
+
+
+.taille-max {
+    max-height: 250px;
 }
