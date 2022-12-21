@@ -226,7 +226,17 @@ body {
     }
 
     .tailleCard {
-        max-height: 325px;
+        height: 270px;
+    }
+
+    .tailleimg {
+        max-height: 220px;
+        width: auto;
+
+    }
+
+    .marg {
+        margin: 10px 0px;
     }
 
 }
