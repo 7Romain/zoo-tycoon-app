@@ -3,7 +3,6 @@ import { Router } from "@angular/router";
 
 import { Espece } from "../espece";
 import { EspeceService } from "../espece.service";
-import { RequeteIoEspece } from "../RequeteIOEspece";
 
 @Component({
   selector: "app-list-especes",
@@ -22,5 +21,9 @@ export class ListEspecesComponent implements OnInit {
 
   goToEspece(espece: Espece): void {
     this.router.navigate(["especes", espece.id]);
+  }
+
+  goToAcceuil() {
+    this.router.navigate(["/acceuil"]);
   }
 }
