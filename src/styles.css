@@ -133,8 +133,12 @@ caption {
 }
 
 .imageLogo {
+    justify-self: center;
+    text-align: center;
     height: 150px;
     width: auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .container1 {
@@ -202,6 +206,12 @@ body {
         object-fit: contain
     }
 
+    .imageEspece2 {
+        width: 100%;
+        height: auto;
+        margin-top: 40%;
+    }
+
     .especeCard {
         margin-top: 25px;
     }
@@ -239,9 +249,50 @@ body {
         margin: 10px 0px;
     }
 
+    .imageEspece2 {
+        width: 100%;
+        height: auto;
+        margin-top: 1%;
+    }
+
 }
 
 
 .taille-max {
     max-height: 250px;
+}
+
+.flex-menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-self: center;
+    text-align: center;
+}
+
+@media (max-width: 603px) {
+    .flex-menu {
+        flex-direction: column;
+
+    }
+
+    .imageLogo {
+
+        width: 200px;
+        height: auto;
+    }
+
+    #colorbtn {
+        font-size: 9px;
+        width: 100px;
+        height: 25px;
+        height: auto;
+
+
+    }
+
+
+
+
+
 }

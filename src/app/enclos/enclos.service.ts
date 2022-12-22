@@ -1,17 +1,16 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { catchError, Observable, of, tap } from "rxjs";
-import { Espece } from "../espece/espece";
-
 import { Router } from "@angular/router";
-import { Animal } from "../animal/animal";
 import { Enclos } from "./enclos";
+import { RequeteIoAnimal } from "../animal/RequeteIOAnimal";
 
 @Injectable({
   providedIn: "root",
 })
 export class EnclosService {
   constructor(private http: HttpClient, private router: Router) {}
+  requete: RequeteIoAnimal;
 
   getEnclosList() {
     return this.http
@@ -26,5 +25,18 @@ export class EnclosService {
   private handleError(error: Error, errorValue: any) {
     console.error(error);
     return of(errorValue);
+  }
+
+  verifierEnclos(
+    enclosId: string,
+    obs: string,
+    user: string | null
+  ): Observable<any> {
+    this.requete = new RequeteIoAnimal(enclosId, obs, user);
+    return this.http.post(
+      "http://localhost:9003/api/enclos/controller",
+      this.requete,
+      { withCredentials: true }
+    );
   }
 }

@@ -1,1 +1,108 @@
-<p>detail-enclos works!</p>
+<div *ngIf="enclos" class="row">
+    <div class="col s12 m10 l10 offset-l1 offset-m1 generalContainer">
+
+        <div class="card hoverable teal lighten-5 row flex-cont">
+            <div class="card-image center valign-wrapper center-align col s12 m3 l4 imageContainer">
+                <img class="imageEspece2 borderimg" src="\assets\image\enclos\{{enclos.id}}.jpg"
+                    alt="image de l'espece">
+            </div>
+
+            <div class="card-content col s12 m9 l8 contentContainer">
+
+                <table class="bordered striped">
+                    <caption>Détail de l'enclos</caption>
+                    <tbody>
+                        <tr>
+
+                            <td class="center"><strong>{{ enclos.nom }}</strong></td>
+                        </tr>
+
+
+                        <tr>
+                            <td class="center">
+                                Zone : {{enclos.zone.nom}}
+                            </td>
+                            <td class="center">
+                                <img class="imageZone borderimg " src="\assets\image\cartes\{{enclos.zone.id}}.png"
+                                    alt="image de la carte">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="center">Superficie</td>
+
+                            <td class="center" *ngIf="enclos.superficie">{{enclos.superficie}}</td>
+                        </tr>
+                        <!-- <tr *ngIf="enclos.coordonnees">
+                            <td class="center">Coordonnées</td>
+                            <td class="center"> <a
+                                    href="geo:https://www.google.com/maps/@?api=1&map_action=map&center=-33.712206%2C150.311941&zoom=12&basemap=terrain">
+                                    {{enclos.coordonnees}}</a></td>
+                        </tr> -->
+                        <tr *ngIf="enclos.coordonnees">
+                            <td class="center">Coordonnées</td>
+                            <td class="center"> <a
+                                    href="https://www.google.com/maps/@?api=1&map_action=map&center={{enclos.coordonnees}}&zoom=12&basemap=terrain">
+                                    {{enclos.coordonnees}}</a></td>
+                        </tr>
+                        <tr *ngIf="enclos.temperatureAir">
+                            <td class="center">Température de l'air</td>
+                            <td class="center">{{enclos.temperatureAir}}°C</td>
+                        </tr>
+                        <tr *ngIf="enclos.hygrometrie">
+                            <td class="center">Hygrométrie</td>
+                            <td class="center">{{enclos.hygrometrie}}%</td>
+                        </tr>
+                        <tr *ngIf="enclos.temperatureBassinMaxi">
+                            <td class="center">Température maximum de l'eau</td>
+                            <td class="center">{{enclos.temperatureBassinMaxi}}°C</td>
+                        </tr>
+                        <tr *ngIf="enclos.temperatureBassinMini ||  (enclos.temperatureBassinMini === 0)">
+                            <td class="center">Température minimum de l'eau</td>
+                            <td class="center">{{enclos.temperatureBassinMini}}°C</td>
+                        </tr>
+
+
+
+
+                    </tbody>
+                </table>
+            </div>
+            <mat-accordion class="card-action  center actionContainer">
+                <mat-expansion-panel *ngIf="isResp()" hideToggle class="teal lighten-5" id="accordion"
+                    [expanded]="panelOpenState" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                    <mat-expansion-panel-header class="center  valign-wrapper center-align centerTitle ">
+                        <div class="center card-action valign-wrapper center-align  ">ACTIONS</div>
+                    </mat-expansion-panel-header>
+                    <mat-tab-group dynamicHeight>
+
+                        <mat-tab *ngIf="isResp()">
+                            <ng-template mat-tab-label>
+                                <a>Vérifications</a>
+                            </ng-template>
+                            <form (ngSubmit)="verifierEnclos()" #ioForm2="ngForm">
+                                <label for="observations2">Observations</label>
+                                <input type="text" id="observations2" name="observations2"
+                                    pattern="^[a-zA-Z0-9àéèç]{1,25}$" [(ngModel)]="obs">
+                                <div class="divider"></div>
+                                <div class="section center">
+                                    <button type="submit" class="waves-effect waves-light btn">
+                                        VERIFIER</button>
+                                </div>
+                            </form>
+                        </mat-tab>
+
+                    </mat-tab-group>
+                </mat-expansion-panel>
+                <div class="flex-end"><a class="x-end" (click)="goToEnclosList()">Retour</a></div>
+            </mat-accordion>
+
+        </div>
+
+
+
+    </div>
+</div>
+<h4 *ngIf='!enclos' class="center">
+    Aucune enclos à afficher.
+
+</h4>

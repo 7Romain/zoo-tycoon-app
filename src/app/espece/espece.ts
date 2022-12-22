@@ -1,3 +1,5 @@
+import { Enclos } from "../enclos/enclos";
+
 export class Espece {
   id: string;
 
@@ -9,5 +11,5 @@ export class Espece {
 
   dangereux: boolean;
 
-  idEnclos: string;
+  enclos: Enclos;
 }

@@ -22,4 +22,8 @@ export class ListAnimauxComponent implements OnInit {
   goToanimal(animal: Animal): void {
     this.router.navigate(["animaux", animal.id]);
   }
+
+  goToAcceuil() {
+    this.router.navigate(["/acceuil"]);
+  }
 }

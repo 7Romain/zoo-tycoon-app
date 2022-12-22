@@ -22,4 +22,8 @@ export class ListEnclosComponent implements OnInit {
   goToEnclos(enclos: Enclos): void {
     this.router.navigate(["enclos", enclos.id]);
   }
+
+  goToAcceuil() {
+    this.router.navigate(["/acceuil"]);
+  }
 }

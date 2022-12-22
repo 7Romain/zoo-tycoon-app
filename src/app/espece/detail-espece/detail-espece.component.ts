@@ -24,6 +24,7 @@ export class DetailEspeceComponent implements OnInit {
   panel: MatExpansionPanel;
   panelOpenState = false;
   especelList: Espece[];
+
   espece: Espece | undefined;
   obs: string = "";
   obsIo: string = "";

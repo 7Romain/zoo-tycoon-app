@@ -8,4 +8,13 @@ export class Enclos {
   superficie: number;
 
   zone: Zone;
+  coordonnees: string;
+
+  temperatureAir: number;
+
+  hygrometrie: number;
+
+  temperatureBassinMini: number;
+
+  temperatureBassinMaxi: number;
 }

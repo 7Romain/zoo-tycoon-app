@@ -59,7 +59,7 @@ export class LoginComponent implements OnInit {
         if (user.username) {
           this.appComponent.majUser(user.username, user.roles);
         }
-        this.router.navigate(["/enclos"]);
+        this.router.navigate(["/acceuil"]);
       },
       error: (error) => {
         this.setMessage();

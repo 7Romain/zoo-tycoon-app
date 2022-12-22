@@ -13,6 +13,8 @@ import { CookieService } from "ngx-cookie-service";
 import { EspeceModule } from "./espece/espece.module";
 import { FormsModule } from "@angular/forms";
 import { EnclosModule } from "./enclos/enclos.module";
+import { AcceuilModule } from "./acceuil/acceuil.module";
+import { EvenementModule } from "./evenement/evenement.module";
 
 @NgModule({
   declarations: [AppComponent, PageNotFoundComponent, LoginComponent],
@@ -20,9 +22,11 @@ import { EnclosModule } from "./enclos/enclos.module";
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    AcceuilModule,
     AnimalModule,
     EspeceModule,
     EnclosModule,
+    EvenementModule,
     AppRoutingModule,
     HttpClientJsonpModule,
     BrowserAnimationsModule,
