@@ -1,0 +1,89 @@
+<div class="row">
+    <div class="col s12 m10 l8 offset-l2 offset-m1 generalContainer">
+        <div class="card hoverable teal lighten-5 row flex-cont">
+            <div class="row">
+                <div class="col s8 offset-s2">
+                    <form (ngSubmit)="onSubmit()" #evenementForm="ngForm">
+
+                        <div class="form-group">
+                            <label for="observations">Observations :</label>
+                            <input type="text" class="form-control" id="observations" required
+                                placeholder="Inscrire ici les observations" pattern="^[a-zA-Z0-9àéèç\s\n\r\t\v]{1,999}$"
+                                [(ngModel)]="observations" name="observations" #observation="ngModel">
+                            <div [hidden]="observation.valid || observation.pristine" class="card-panel red accent-1">
+                                Le champ observations est requis.
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group">
+                            <label for="eventTypes">Type d'évènement :</label>
+                            <select class="form-control ctrl1 hoverable teal lighten-5" [(ngModel)]="id_type_evenement"
+                                name="eventTypes" title="eventTypes" required #eventTypes="ngModel"
+                                pattern="^[a-zA-Z0-9àéèç]{1,999}$">
+
+                                <option value="undefined" disabled selected>Veuillez indiquer le type d'évènement :
+                                </option>
+                                <option *ngFor="let n of listEventTypes" class="ctrl" [value]="n.id">{{ n.nom }}
+                                </option>
+                            </select>
+                            <div [hidden]="eventTypes.valid || eventTypes.pristine" *ngIf="eventTypes.invalid"
+                                class="alert">
+                                <div *ngIf="eventTypes.errors?.['required']">
+                                    Veuillez sélectionner un type d'évènements à rapporter.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group"><label for="eventEnclos">Enclos concerné :</label>
+                            <select name="eventEnclos" id="eventEnclos"
+                                class="ctrl1 form-control hoverable teal lighten-5" [(ngModel)]="id_enclos"
+                                (ngModelChange)="onChangeEnclos($event)">
+                                <option value="undefined" disabled selected>Enclos :
+                                </option>
+                                <option class="ctrl" *ngFor="let enclos of listEnclos" [value]="enclos.id">
+                                    {{enclos.nom}}</option>
+
+                            </select>
+                        </div>
+                        <div class="form-group"><label for="eventEspece">Espece concernée :</label>
+                            <select name="eventEspece" id="eventEspece"
+                                class="ctrl1 form-control hoverable teal lighten-5" [(ngModel)]="id_espece"
+                                (ngModelChange)="onChangeEspece($event)">
+                                <option value="undefined" disabled selected>Espece :
+                                </option>
+                                <option class="ctrl" *ngFor="let espece of listEspece" [value]="espece.id">
+                                    {{espece.nom}}</option>
+
+                            </select>
+                        </div>
+                        <div class="form-group"><label for="eventAnimaux">Animal concerné :</label>
+                            <select name="eventAnimaux" id="eventAnimaux"
+                                class="ctrl1 form-control hoverable teal lighten-5" [(ngModel)]="id_animal"
+                                (ngModelChange)="onChangeAnimaux($event)">
+                                <option value="undefined" disabled selected>Animaux :
+                                </option>
+                                <option class="ctrl" *ngFor="let animal of listAnimaux" [value]="animal.id">
+                                    {{animal.nom}}</option>
+
+                            </select>
+                        </div>
+
+
+
+                        <div class="divider"></div>
+                        <div class="section center">
+                            <button type="submit" class="waves-effect waves-light btn"
+                                [disabled]="!evenementForm.form.valid">
+                                Valider</button>
+                            <button type="button" (click)="ricette()" class="waves-effect waves-light btn filterBtn"
+                                [disabled]="evenementForm.form.pristine">
+                                Enlever les filtres</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            <img class="retour" (click)="goToAcceuilEvent()" src="\assets\image\arrow.png" alt="fleche retour">
+        </div>

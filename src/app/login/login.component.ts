@@ -34,22 +34,6 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  // login(): void {
-  //   this.message = "Tentative de conexion en cours...";
-  //   this.auth.login(this.name, this.password).subscribe((reponse: User) => {
-  //     this.setMessage();
-  //     console.log(reponse);
-
-  //     if (reponse) {
-  //       // this.appComponent.majUser();
-  //       this.router.navigate(["/animaux"]);
-  //     } else {
-  //       this.password = "";
-  //       this.router.navigate(["/login"]);
-  //     }
-  //   });
-  // }
-
   login(): void {
     this.message = "Tentative de conexion en cours...";
     this.auth.login(this.name, this.password).subscribe({
@@ -69,20 +53,6 @@ export class LoginComponent implements OnInit {
       },
     });
   }
-
-  // login(): void {
-  //   this.message = "Tentative de conexion en cours...";
-  //   this.auth.login(this.name, this.password).subscribe((reponse: boolean) => {
-  //     this.setMessage();
-
-  //     if (reponse) {
-  //       this.router.navigate(["/animaux"]);
-  //     } else {
-  //       this.password = "";
-  //       this.router.navigate(["/login"]);
-  //     }
-  //   });
-  // }
 
   logout() {
     this.auth.logout();

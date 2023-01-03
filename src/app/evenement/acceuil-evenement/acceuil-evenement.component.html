@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row acceuil">
+        <div class="col  s6">
+            <div (click)="goToCreerEvenement()" class="card teal lighten-5 " appBorderCard>
+                <div class="card-image center valign-wrapper center-align "><img class="borderimg "
+                        src="\assets\image\acceuil\gauche.png" alt="image d'enclos"></div>
+                <div class="card-stacked  ">
+                    <div class="card-content center">
+                        <div class="space2"></div>
+                        <span class="center relief ">Créer un évenement</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col   s6">
+            <div (click)="goToEvenementList()" class="card  teal lighten-5 " appBorderCard>
+                <div class="card-image center valign-wrapper center-align "><img class="borderimg "
+                        src="\assets\image\acceuil\droite2.png" alt="image d'espece"></div>
+                <div class="card-stacked  ">
+                    <div class="card-content center">
+                        <div class="space2"></div>
+                        <span class="center relief ">Consulter les évènements</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <img class="retour" (click)="goToAcceuil()" src="\assets\image\arrow.png" alt="fleche retour">
+
+</div>

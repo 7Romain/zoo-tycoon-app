@@ -9,7 +9,7 @@ import { User } from "./user";
 export class AuthService {
   loginUrl: string = "http://localhost:9003/api/auth/signin";
   logoutUrl: string = "http://localhost:9003/api/auth/signout";
-  isLoggedIn: boolean = false;
+  isLoggedIn: boolean = this.checkLoginStatus();
   redirectUrl: string;
   user: User;
   constructor(private http: HttpClient) {}
@@ -27,41 +27,12 @@ export class AuthService {
           if (user.username) {
             localStorage.setItem("localUser", user.username);
             localStorage.setItem("roles", JSON.stringify(user.roles));
+            localStorage.setItem("loginStatus", "1");
           }
           console.log(this.user);
         })
       );
   }
-
-  //   userName(user:User):Observable<string> {
-  //     return new Observable((observer)=>
-  //     { if(user.username){observer.next(user.username)}
-  // observer.complete();
-  //     })
-  //   }
-
-  // login(name: string, password: string): Observable<boolean> {
-  //   const loginData = { username: name, password: password };
-
-  //   return new Observable((observer) => {
-  //     this.http
-  //       .post(this.loginUrl, loginData, { withCredentials: true })
-  //       .subscribe({
-  //         next: () => {
-  //           this.isLoggedIn = true;
-  //           observer.next(true);
-  //           observer.complete();
-  //         },
-  //         error: (error) => {
-  //           this.isLoggedIn = false;
-  //           observer.next(false);
-  //           observer.error(error);
-  //           observer.complete();
-  //         },
-  //       });
-  //   });
-  // }
-
   logout() {
     return new Observable<boolean>((observer) => {
       this.http.post(this.logoutUrl, "null").subscribe({
@@ -69,6 +40,7 @@ export class AuthService {
           observer.next(true);
           this.isLoggedIn = false;
           observer.complete();
+          localStorage.setItem("loginStatus", "0");
         },
         error: (error) => {
           observer.error(false);
@@ -77,5 +49,14 @@ export class AuthService {
         },
       });
     });
+  }
+
+  checkLoginStatus(): boolean {
+    let logonCookie = localStorage.getItem("checkLoginStatus");
+
+    if (logonCookie == "1") {
+      return true;
+    }
+    return false;
   }
 }

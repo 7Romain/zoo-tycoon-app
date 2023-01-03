@@ -17,9 +17,6 @@ import { Animal } from "src/app/animal/animal";
   styleUrls: ["../../../materialize.min.css"],
 })
 export class DetailEspeceComponent implements OnInit {
-  // test = document.querySelector(".cardcss");
-  // ecran = document.w;
-
   @ViewChildren("checkboxes") checkboxes: QueryList<ElementRef>;
   panel: MatExpansionPanel;
   panelOpenState = false;

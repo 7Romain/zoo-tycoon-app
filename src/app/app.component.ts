@@ -45,4 +45,15 @@ export class AppComponent {
       this.user = JSON.parse(localStorage.getItem("localUser"));
     } */
   }
+
+  afficherRole(): string {
+    let roleStr: string = this.user.roles.join(" ");
+    if (roleStr.includes("VETO")) {
+      return "Vétérinaire";
+    } else if (roleStr.includes("RESPONSABLE")) {
+      return "Responsable";
+    } else {
+      return "Soigneur";
+    }
+  }
 }

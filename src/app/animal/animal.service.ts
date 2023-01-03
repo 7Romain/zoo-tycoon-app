@@ -4,6 +4,7 @@ import { catchError, Observable, of, tap } from "rxjs";
 import { Animal } from "./animal";
 import { RequeteIoAnimal } from "./RequeteIOAnimal";
 import { Router } from "@angular/router";
+import { Enclos } from "../enclos/enclos";
 
 @Injectable({
   providedIn: "root",
@@ -21,10 +22,25 @@ export class AnimalService {
   }
 
   getAnimalById(animalId: string): Observable<Animal | undefined> {
-    return this.http.get<Animal>(`api/animaux/${animalId}`).pipe(
-      tap((animal) => console.log(animal)),
-      catchError((error) => this.handleError(error, undefined))
-    );
+    return this.http
+      .get<Animal>(`http://localhost:9003/api/animaux/${animalId}`, {
+        withCredentials: true,
+      })
+      .pipe(
+        tap((animal) => console.log(animal)),
+        catchError((error) => this.handleError(error, undefined))
+      );
+  }
+
+  getEnclosByAnimalId(animalId: string): Observable<Enclos[]> {
+    return this.http
+      .get<Enclos[]>(`http://localhost:9003/api/enclos/animal/${animalId}`, {
+        withCredentials: true,
+      })
+      .pipe(
+        tap((enclos) => console.log(enclos)),
+        catchError((error) => this.handleError(error, undefined))
+      );
   }
 
   private handleError(error: Error, errorValue: any) {
@@ -95,5 +111,27 @@ export class AnimalService {
       this.requete,
       { withCredentials: true }
     );
+  }
+
+  getAnimalListByEnclos(enclosId: string): Observable<Animal[]> {
+    return this.http
+      .get<Animal[]>(`http://localhost:9003/api/animaux/enclos/${enclosId}`, {
+        withCredentials: true,
+      })
+      .pipe(
+        tap((animal) => console.log(animal)),
+        catchError((error) => this.handleError(error, undefined))
+      );
+  }
+
+  getAnimalListByEspece(especeId: string): Observable<Animal[]> {
+    return this.http
+      .get<Animal[]>(`http://localhost:9003/api/animaux/espece/${especeId}`, {
+        withCredentials: true,
+      })
+      .pipe(
+        tap((animal) => console.log(animal)),
+        catchError((error) => this.handleError(error, undefined))
+      );
   }
 }

@@ -27,9 +27,9 @@
                         <tr>
                             <td>Loacalisation</td>
                             <td *ngIf="animal.localisation=='dedans'">
-                                Est à l'intérieur</td>
+                                Est à l'intérieur dans l'enclos : {{enclos}}</td>
                             <td *ngIf="animal.localisation=='dehors'">
-                                Est à l'extérieur
+                                Est à l'extérieur dans l'enclos : {{enclos}}
                             </td>
                         </tr>
                         <tr>
@@ -44,9 +44,8 @@
                                 {{animal.observations}}
                             </td>
                         </tr>
-                        /**@TODO ajouter l'enclos de l'animal
-                        *
-                        */
+
+
                     </tbody>
                 </table>
             </div>

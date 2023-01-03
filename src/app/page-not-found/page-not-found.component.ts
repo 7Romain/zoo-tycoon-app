@@ -8,7 +8,7 @@ import { Component, OnInit } from "@angular/core";
 
       <img src="assets/image/psy.png" />
       <h1>Aïe cette page n'existe pas !</h1>
-      <a routerLink="/animaux" class="waves-effect waves-teal btn-flat">
+      <a routerLink="/acceuil" class="waves-effect waves-teal btn-flat">
         Retourner à l' accueil
       </a>
     </div>

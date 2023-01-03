@@ -1,1 +1,177 @@
-<p>list-evenement works!</p>
+<div class="container m5">
+    <div class="row">
+
+        <div class="col s12 m10 l10 offset-l1 offset-m1">
+            <div class=" teal lighten-5 m5">
+
+                <mat-accordion>
+                    <mat-expansion-panel (opened)="panelTitre = 'Zones'" (closed)="panelTitre = ' '">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                Zones
+                            </mat-panel-title>
+                            <mat-panel-description>
+                                Voir la liste des évènements pour chaque zone géographique
+                            </mat-panel-description>
+                        </mat-expansion-panel-header>
+
+                        <div class="container">
+                            <div class="row">
+
+                                <div class="col  l4 m6 s12 card-flex  marg" *ngFor="let zone of zoneList">
+
+                                    <div (click)="goToZoneEvent(zone)" class="card  teal lighten-5 tailleCard6 "
+                                        appBorderCard>
+
+                                        <div class="card-image   "><img class="borderimg "
+                                                src="\assets\image\cartes\{{zone.id}}.png" alt="image de la zone">
+                                        </div>
+
+                                        <div class="card-content">
+                                            <p class="center relief">{{zone.nom}}</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+
+
+                        </div>
+
+
+
+                    </mat-expansion-panel>
+                    <mat-expansion-panel (opened)="panelTitre = 'Enclos'" (closed)="panelTitre = ' '">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                Enclos
+                            </mat-panel-title>
+                            <mat-panel-description>
+                                Voir la liste des évènements par enclos
+                            </mat-panel-description>
+                        </mat-expansion-panel-header>
+
+                        <div class="container">
+                            <div class="row">
+
+                                <div class="col  l4 m6 s12 card-flex  marg" *ngFor="let enclos of enclosList">
+
+                                    <div (click)="goToEnclosEvent(enclos)" class="card  teal lighten-5 tailleCard3 "
+                                        appBorderCard>
+
+                                        <div class="card-image  "><img class="  borderimg"
+                                                src="\assets\image\enclos\{{enclos.id}}.jpg" alt="image de l'enclos">
+                                        </div>
+
+                                        <div class="card-content center-align">
+                                            <p class="center relief center-align">{{enclos.nom}}</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+
+
+                        </div>
+
+
+
+                    </mat-expansion-panel>
+                    <mat-expansion-panel (opened)="panelTitre = 'Espèces'" (closed)="panelTitre = ' '">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                Espèces
+                            </mat-panel-title>
+                            <mat-panel-description>
+                                Voir la liste des évènements pour chaque espèce
+                            </mat-panel-description>
+                        </mat-expansion-panel-header>
+
+
+
+                        <div class="container">
+                            <div class="row">
+
+                                <div class="col  l4 m6 s12 card-flex  marg" *ngFor="let espece of especeList">
+
+                                    <div (click)="goToEspeceEvent(espece)" class="card  teal lighten-5 tailleCard4 "
+                                        appBorderCard>
+
+                                        <div class="card-image  "><img src="\assets\image\brut\{{espece.id}}.png"
+                                                alt="image de l'espece">
+                                        </div>
+
+                                        <div class="card-content">
+                                            <p class="center relief">{{espece.nom}}</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+
+
+                        </div>
+
+
+
+                    </mat-expansion-panel>
+                    <mat-expansion-panel (opened)="panelTitre = 'Animaux'" (closed)="panelTitre = ' '">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                Animaux
+                            </mat-panel-title>
+                            <mat-panel-description>
+                                Voir la liste des évènements par animal
+                            </mat-panel-description>
+                        </mat-expansion-panel-header>
+
+
+
+
+                        <div class="container">
+                            <div class="row">
+
+                                <div class="col  l4 m6 s12 card-flex  marg" *ngFor="let animal of animalList">
+
+                                    <div (click)="goToAnimalEvent(animal)" class="card  teal lighten-5 tailleCard5 "
+                                        appBorderCard>
+
+                                        <div class="card-image  "><img src="\assets\image\{{animal.id}}.webp"
+                                                class="borderimg" alt="image de l'animal">
+                                        </div>
+
+                                        <div class="card-content">
+                                            <p class="center relief">{{animal.nom}}</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+
+
+                        </div>
+                    </mat-expansion-panel>
+
+                </mat-accordion>
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+    <img class="retour" (click)="goToAcceuilEvent()" src="\assets\image\arrow.png" alt="fleche retour">
+</div>

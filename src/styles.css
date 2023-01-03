@@ -172,6 +172,12 @@ caption {
     right: 15px;
 }
 
+.deco3 {
+    position: absolute;
+    top: 48px;
+    right: 15px;
+}
+
 html,
 body {
     height: 100%;

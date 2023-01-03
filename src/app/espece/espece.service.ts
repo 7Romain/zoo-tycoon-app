@@ -35,6 +35,17 @@ export class EspeceService {
       );
   }
 
+  getEspeceListByAnimal(animalId: string): Observable<Espece[]> {
+    return this.http
+      .get<Espece[]>(`http://localhost:9003/api/espece/animaux/${animalId}`, {
+        withCredentials: true,
+      })
+      .pipe(
+        tap((especeList) => console.table("first log" + especeList)),
+        catchError((error) => this.handleError(error, []))
+      );
+  }
+
   private handleError(error: Error, errorValue: any) {
     console.error(error);
     return of(errorValue);
@@ -105,5 +116,16 @@ export class EspeceService {
       this.requete,
       { withCredentials: true }
     );
+  }
+
+  getEspeceListByEnclos(enclosId: string): Observable<Espece[]> {
+    return this.http
+      .get<Espece[]>(`http://localhost:9003/api/especes/enclos/${enclosId}`, {
+        withCredentials: true,
+      })
+      .pipe(
+        tap((especeList) => console.log(especeList)),
+        catchError((error) => this.handleError(error, undefined))
+      );
   }
 }

@@ -3,10 +3,37 @@
  * Copyright 2014-2017 Materialize
  * MIT License (https://raw.githubusercontent.com/Dogfalo/materialize/master/LICENSE)
  */
+
+table {
+    width: 100%;
+}
+
+
+
+.marginRiLe {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.ctrl {
+    display: block;
+}
+
+.ctrl1 {
+    display: block;
+    border: 2px inset teal;
+}
+
 .retour {
     position: fixed;
     top: 185px;
     right: 60px;
+}
+
+.deco3 {
+    position: absolute;
+    top: 35px;
+    right: 15px;
 }
 
 @media (max-width: 992px) {
@@ -18,6 +45,10 @@
         height: 40px;
     }
 
+}
+
+.m5 {
+    margin-top: 35px;
 }
 
 @media (max-width: 603px) {
@@ -37,6 +68,10 @@
 
 .margeTexte {
     margin: 0 5px;
+}
+
+.filterBtn {
+    margin-left: 10px;
 }
 
 .materialize-red {
@@ -9206,6 +9241,22 @@ input[type=range]::-ms-thumb {
 
     .tailleCard2 {
         height: 335px;
+    }
+
+    .tailleCard3 {
+        height: 235px;
+    }
+
+    .tailleCard4 {
+        height: 280px;
+    }
+
+    .tailleCard5 {
+        height: 170px;
+    }
+
+    .tailleCard6 {
+        height: 260px;
     }
 
     .imageEspece2 {

@@ -18,6 +18,6 @@ export class AcceuilComponent {
     this.router.navigate(["animaux"]);
   }
   goToEvenements() {
-    this.router.navigate(["animaux"]);
+    this.router.navigate(["evenements"]);
   }
 }

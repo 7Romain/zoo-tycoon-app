@@ -18,6 +18,7 @@ export class DetailAnimalComponent implements OnInit {
   accordeon: any;
   user: string | null = "inconnu";
   roles: string | null;
+  enclos: string | null;
 
   constructor(
     private router: Router,
@@ -32,6 +33,13 @@ export class DetailAnimalComponent implements OnInit {
     });
     this.user = localStorage.getItem("localUser");
     this.roles = localStorage.getItem("roles");
+    if (animalId) {
+      this.animalService
+        .getEnclosByAnimalId(animalId)
+        .subscribe((enclosTableau) => {
+          this.enclos = enclosTableau[0].nom;
+        });
+    }
   }
 
   goToanimalList() {
