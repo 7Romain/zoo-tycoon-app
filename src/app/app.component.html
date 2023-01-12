@@ -6,7 +6,7 @@
 
         <a class="deco" (click)="logout()" *ngIf="auth.isLoggedIn"><button class="waves-effect waves-light btn-small"
                 id="colorbtn">Déconnexion</button></a>
-        <p class="deco2 maj" *ngIf="auth.isLoggedIn && user"> {{user.username}}</p>
+        <p class="deco2 majNom" *ngIf="auth.isLoggedIn && user"> {{afficherNom()}}</p>
         <p class="deco3 maj" *ngIf="auth.isLoggedIn && user"> {{afficherRole()}}</p>
 
 

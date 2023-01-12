@@ -160,6 +160,10 @@ caption {
     text-transform: uppercase;
 }
 
+.majNom {
+    text-transform: capitalize;
+}
+
 .deco {
     position: absolute;
     top: 5px;

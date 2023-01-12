@@ -52,4 +52,9 @@ export class AppComponent {
       return "Soigneur";
     }
   }
+
+  afficherNom(): string {
+    if (this.user.username) return this.user.username.replace(".", " ");
+    return " ";
+  }
 }
