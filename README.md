@@ -17,10 +17,6 @@ Partie Web App du projet Zoo pour la formation AFPA CDA 2022-2023 @ Beaumont
 - besoin de lancer [zooApi](https://github.com/7Romain/zooApi) 
 - Lancer la commande ```ng serve ``` puis rendez-vous dans un navigateur à l'adresse : http://localhost:4200/
 
-    
-## ➤ API Reference
-[Description de l'API](http://localhost:9003/swagger-ui/index.html)
-
 
 ## 🙇 Author
 #### 7Romain
