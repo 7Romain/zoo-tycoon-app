@@ -1,7 +1,35 @@
-# ZooTycoonApp
+# <p align="center">Zoo Web Application</p>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.1.
+![Image](https://upload.wikimedia.org/wikipedia/fr/c/cc/Zoo_Tycoon_%282001%29_Logo.PNG)
 
-## Development server
+Partie Web App du projet Zoo pour la formation AFPA CDA 2022-2023 @ Beaumont
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+
+## 🛠️ Tech Stack
+- [TypeScript](https://www.typescriptlang.org/)
+- [Angular](https://angular.io/)
+- [HTML5](https://developer.mozilla.org/fr/docs/Glossary/HTML5)
+- [CSS3](https://developer.mozilla.org/fr/docs/Web/CSS)
+- [MaterializeCSS](https://materializecss.com/)
+
+
+## 🛠️ Installation
+- besoin de lancer [zooApi](https://github.com/7Romain/zooApi) 
+- Lancer la commande ```ng serve ``` puis rendez-vous dans un navigateur à l'adresse : http://localhost:4200/
+
+    
+## ➤ API Reference
+[Description de l'API](http://localhost:9003/swagger-ui/index.html)
+
+
+## 🙇 Author
+#### 7Romain
+
+- Github: [@7Romain](https://github.com/7Romain)
+
+## ➤ License
+
+[CC0 1.0 Universal
+](https://creativecommons.org/publicdomain/zero/1.0/)
+
+  
