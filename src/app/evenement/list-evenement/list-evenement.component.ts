@@ -1,6 +1,5 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
-import { EvenementService } from "../evenement.service";
 import { Evenement } from "../evenement";
 import { Enclos } from "src/app/enclos/enclos";
 import { EnclosService } from "src/app/enclos/enclos.service";
@@ -34,12 +33,6 @@ export class ListEvenementComponent implements OnInit {
   animalList: Animal[];
 
   ngOnInit(): void {
-    // this.evenementService
-    //   .getEvenementList()
-    //   .subscribe((evenementListAPI: any) => {
-    //     this.evenementList = evenementListAPI;
-    //   });
-
     this.enclosService.getEnclosList().subscribe((enclosListAPI: Enclos[]) => {
       this.enclosList = enclosListAPI;
     });

@@ -4,10 +4,7 @@ import { Evenement } from "../evenement";
 import { EvenementService } from "../evenement.service";
 import { MatPaginator, PageEvent } from "@angular/material/paginator";
 import { MatTableDataSource } from "@angular/material/table";
-import { DataSource } from "@angular/cdk/collections";
-import { Enclos } from "src/app/enclos/enclos";
 import { EnclosService } from "../../enclos/enclos.service";
-import { MatSort } from "@angular/material/sort";
 
 @Component({
   selector: "app-test-evenement",

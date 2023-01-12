@@ -14,7 +14,7 @@ import { TestEvenementComponent } from "./test-evenement/test-evenement.componen
 import { MatTableModule } from "@angular/material/table";
 import { DatePipe } from "./Date-Pipe.pipe";
 import { EventNomPipe } from "./event-nom.pipe";
-import { MatPaginator, MatPaginatorModule } from "@angular/material/paginator";
+import { MatPaginatorModule } from "@angular/material/paginator";
 import { EnclosEvenementComponent } from "./enclos-evenement/enclos-evenement.component";
 import { EspeceEvenementComponent } from "./espece-evenement/espece-evenement.component";
 import { AnimalEvenementComponent } from "./animal-evenement/animal-evenement.component";

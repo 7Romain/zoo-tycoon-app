@@ -40,10 +40,6 @@ export class AppComponent {
   majUser(username: string, roles: string[]) {
     this.user.username = username;
     this.user.roles = roles;
-
-    /*  if(localStorage.getItem("localUser")){
-      this.user = JSON.parse(localStorage.getItem("localUser"));
-    } */
   }
 
   afficherRole(): string {

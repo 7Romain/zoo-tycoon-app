@@ -6,8 +6,6 @@ import { Pipe, PipeTransform } from "@angular/core";
 export class AnimalDateAgePipe implements PipeTransform {
   transform(date: Date): string {
     date = new Date(date);
-    return new Number(
-      (new Date().getTime() - date.getTime()) / 31536000000
-    ).toFixed(0);
+    return ((new Date().getTime() - date.getTime()) / 31536000000).toFixed(0);
   }
 }

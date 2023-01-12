@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component } from "@angular/core";
 
 @Component({
   selector: "app-page-not-found",
@@ -15,6 +15,4 @@ import { Component, OnInit } from "@angular/core";
   `,
   styleUrls: ["../../materialize.min.css"],
 })
-export class PageNotFoundComponent implements OnInit {
-  ngOnInit(): void {}
-}
+export class PageNotFoundComponent {}

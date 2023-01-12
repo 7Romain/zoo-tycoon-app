@@ -5,9 +5,7 @@
             <div class=" teal lighten-5 m5">
 
                 <div class="mat-elevation-z10">
-                    <table mat-table [dataSource]="dataSource">
-
-
+                    <table mat-table [dataSource]="dataSource" aria-describedby="test evenements">
 
                         <ng-container matColumnDef="idTypeEvenement">
                             <th mat-header-cell *matHeaderCellDef> Évènement </th>
@@ -55,16 +53,11 @@
                         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
                     </table>
-                    <mat-paginator (page)="handlePageEvent($event)" [length]="length" [pageSize]="pageSize"
+                    <mat-paginator role="alert" (page)="handlePageEvent($event)" [length]="length" [pageSize]="pageSize"
                         [showFirstLastButtons]="showFirstLastButtons" [pageSizeOptions]="pageSizeOptions"
                         [pageIndex]="pageIndex" aria-label="Select page">
                     </mat-paginator>
-
                 </div>
-
-
-
-
             </div>
         </div>
     </div>

@@ -1,6 +1,4 @@
-import { Pipe, PipeTransform, OnInit } from "@angular/core";
-import { EvenementService } from "./evenement.service";
-import { EvenementTypes } from "./evenementTypes";
+import { Pipe, PipeTransform } from "@angular/core";
 
 @Pipe({
   name: "eventNom",

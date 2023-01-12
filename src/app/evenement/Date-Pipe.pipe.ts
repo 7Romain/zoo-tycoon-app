@@ -1,5 +1,4 @@
 import { Pipe, PipeTransform } from "@angular/core";
-import { EnclosService } from "../enclos/enclos.service";
 
 @Pipe({
   name: "datePipe",

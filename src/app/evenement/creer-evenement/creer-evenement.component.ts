@@ -1,14 +1,9 @@
-import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
-import { ChildActivationEnd, Router } from "@angular/router";
+import { Component, OnInit, ViewChild } from "@angular/core";
+import { Router } from "@angular/router";
 import { EvenementService } from "../evenement.service";
 import { EvenementTypes } from "../evenementTypes";
-import { FormGroup, FormsModule } from "@angular/forms";
-import {
-  FormControl,
-  FormGroupDirective,
-  NgForm,
-  Validators,
-} from "@angular/forms";
+import { FormGroup } from "@angular/forms";
+
 import { Enclos } from "src/app/enclos/enclos";
 import { EnclosService } from "src/app/enclos/enclos.service";
 import { Espece } from "../../espece/espece";
@@ -78,6 +73,12 @@ export class CreerEvenementComponent implements OnInit {
     this.router.navigate(["/evenements"]);
   }
 
+  /**
+   *
+   *actualise les listes des animaux et des espèces présentes dans l'enclos
+   * @param {Event} event
+   * @memberof CreerEvenementComponent
+   */
   onChangeEnclos(event: Event) {
     let choix: string;
 
@@ -90,6 +91,14 @@ export class CreerEvenementComponent implements OnInit {
       this.listEspece = especeList;
     });
   }
+
+  /**
+   *
+   *actualise les listes des animaux et des enclos en fonction de l'espèce
+   *
+   * @param {Event} event
+   * @memberof CreerEvenementComponent
+   */
   onChangeEspece(event: Event) {
     let choix: string;
     choix = this.id_espece;
@@ -102,6 +111,13 @@ export class CreerEvenementComponent implements OnInit {
       this.listEnclos = list;
     });
   }
+  /**
+   *actualise les listes des enclos et des espèces en fonction de l'animal sélectionné
+   *
+   *
+   * @param {Event} event
+   * @memberof CreerEvenementComponent
+   */
   onChangeAnimaux(event: Event) {
     let choix: string;
     choix = this.id_animal;

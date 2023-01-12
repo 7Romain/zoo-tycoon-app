@@ -1,10 +1,4 @@
-import {
-  Component,
-  ElementRef,
-  OnInit,
-  QueryList,
-  ViewChildren,
-} from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { MatExpansionPanel } from "@angular/material/expansion";
 import { ActivatedRoute, Router } from "@angular/router";
 import { Enclos } from "../enclos";

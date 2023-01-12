@@ -1,5 +1,3 @@
-import { Enclos } from "../enclos/enclos";
-
 export class RequeteIoEvenement {
   id_personnel: string | null;
   id_enclos: string;

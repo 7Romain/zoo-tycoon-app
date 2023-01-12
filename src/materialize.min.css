@@ -2263,7 +2263,7 @@ pre {
 
 a {
     background-color: transparent;
-    -webkit-text-decoration-skip: objects
+
 }
 
 abbr[title] {
@@ -2478,7 +2478,6 @@ ul:not(.browser-default)>li {
 a {
     color: #039be5;
     text-decoration: none;
-    -webkit-tap-highlight-color: transparent
 }
 
 .valign-wrapper {
@@ -5274,7 +5273,6 @@ small {
     padding: 0 16px;
     text-transform: uppercase;
     vertical-align: middle;
-    -webkit-tap-highlight-color: transparent
 }
 
 .btn.disabled,
@@ -5760,7 +5758,6 @@ body.keyboard-focused .dropdown-content li:focus {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    -webkit-tap-highlight-color: transparent;
     vertical-align: middle;
     z-index: 1;
     -webkit-transition: .3s ease-out;
@@ -5980,7 +5977,6 @@ body.keyboard-focused .dropdown-content li:focus {
     display: -ms-flexbox;
     display: flex;
     cursor: pointer;
-    -webkit-tap-highlight-color: transparent;
     line-height: 1.5;
     padding: 1rem;
     background-color: #fff;
@@ -7149,7 +7145,6 @@ textarea.materialize-textarea {
 
 .switch,
 .switch * {
-    -webkit-tap-highlight-color: transparent;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -7634,8 +7629,8 @@ input[type=range]::-ms-thumb {
     -webkit-transform: translateX(-100%);
     transform: translateX(-100%);
     height: 100%;
-    height: calc(100% + 60px);
     height: -moz-calc(100%);
+    height: calc(100% + 60px);
     padding-bottom: 60px;
     background-color: #fff;
     z-index: 999;
