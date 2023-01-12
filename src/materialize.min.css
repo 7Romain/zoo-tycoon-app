@@ -9259,6 +9259,11 @@ input[type=range]::-ms-thumb {
         height: 260px;
     }
 
+    .tailleCard7 {
+        height: 280px;
+    }
+
+
     .imageEspece2 {
         width: 100%;
         height: auto;
